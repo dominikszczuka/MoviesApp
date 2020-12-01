@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import NavLink from '../NavLink/NavLink';
 import { default as NavLinkStyles} from './Nav.module.scss';
 import bemCssModule from 'bem-css-modules';
-import {Link} from 'constants/types/Link';
+import { Link } from 'constants/types/Link';
 const style=bemCssModule(NavLinkStyles);
 
 const Nav = () => {

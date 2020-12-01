@@ -2,7 +2,7 @@ import React from 'react';
 
 import { default as NavLinkStyles} from '../Nav/Nav.module.scss';
 import bemCssModule from 'bem-css-modules';
-import {Link} from 'constants/types/Link';
+import { Link } from 'constants/types/Link';
 const style=bemCssModule(NavLinkStyles);
 
 export interface NavLinkProps {
