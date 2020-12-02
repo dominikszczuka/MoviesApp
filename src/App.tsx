@@ -1,12 +1,8 @@
-import React from 'react';
-
-import HomeScreen from './screens/HomeScreen/HomeScreen';
-
+import React from "react";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
 function App() {
-  return (
-    <HomeScreen/>
-  );
+  return <HomeScreen />;
 }
 
 export default App;
