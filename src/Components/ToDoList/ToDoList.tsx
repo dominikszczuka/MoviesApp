@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 
 import ToDoItem from '../ToDoItem/ToDoItem';
 
-import  {ToDo}  from 'constants/types/ToDo';
+import  { ToDo }  from 'constants/types/ToDo';
 
 const ToDoList = () => {
 

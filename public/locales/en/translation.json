@@ -1,0 +1,8 @@
+{
+    "title-app":"todoapp&react",
+    "menu":{ 
+    "pos1": "Tasks",
+    "pos2": "Finished tasks",
+    "pos3": "Add task"
+    }
+}
