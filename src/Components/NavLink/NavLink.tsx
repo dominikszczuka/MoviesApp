@@ -9,7 +9,7 @@ export interface NavLinkProps {
   link: Link;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ link }: NavLinkProps) => {
+const NavLink: React.FC<NavLinkProps> = ({ link }) => {
   const { t } = useTranslation();
 
   return (
