@@ -2,10 +2,15 @@ import React from 'react';
 
 const Footer = () => {
     return(
-        <p>
+        <p  >
             Footer
+        
+        
+        
+        
+        
         </p>
     );
-};
+}
 
 export default Footer;
