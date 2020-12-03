@@ -4,16 +4,15 @@ import bemCssModule from "bem-css-modules";
 import { default as HomeScreenStyles } from "./HomeScreen.module.scss";
 import LayoutWrapper from "components/LayoutWrapper/LayoutWrapper";
 import HeaderPanel from "components/HeaderPanel/HeaderPanel";
-
+import { useTranslation } from "react-i18next";
 const style = bemCssModule(HomeScreenStyles);
 
 const HomeScreen = () => {
-  const buttonAdd = <button>Add task</button>;
-
+  const { t } = useTranslation();
   return (
     <LayoutWrapper>
-      <HeaderPanel actionButton={buttonAdd} />
-      <h1 className={style("title")}>Active Task</h1>
+      <HeaderPanel titleButton="Add task" />
+      <h1 className={style("title")}>{t("active-tasks")}</h1>
       <ToDo />
     </LayoutWrapper>
   );

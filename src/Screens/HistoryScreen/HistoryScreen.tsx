@@ -1,14 +1,15 @@
 import HeaderPanel from "components/HeaderPanel/HeaderPanel";
 import LayoutWrapper from "components/LayoutWrapper/LayoutWrapper";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const HistoryToDoScreen = () => {
-  const clearTaskButton = <button>Clear Tasks</button>;
+  const { t } = useTranslation();
 
   return (
     <LayoutWrapper>
-      <HeaderPanel actionButton={clearTaskButton} />
-      <h1>Finished Task</h1>
+      <HeaderPanel titleButton="Clear tasks" />
+      <h1>{t("history-tasks")}</h1>
     </LayoutWrapper>
   );
 };
