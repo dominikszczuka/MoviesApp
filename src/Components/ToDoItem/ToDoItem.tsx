@@ -14,6 +14,10 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ todo }: ToDoItemProps) => {
     <div className={style()}>
       <p className={style("title")}>Title: {todo.title}</p>
       <p className={style("desc")}>Description: {todo.desc}</p>
+      <p className={style("date")}>
+        {" "}
+        Date start task: {todo.dateStart.toISOString()}
+      </p>
     </div>
   );
 };

@@ -1,19 +1,22 @@
-@import "../../styles/pallete.scss";
+@import "styles/pallete.scss";
 
 .task {
-  display: flex;
-  flex-direction: column;
   margin: 20px;
-  padding: 10px;
+  padding: 5px;
 
   border: 2px solid $to-do-item-border;
   border-radius: 10px;
 
   &__title {
     font-weight: bold;
-    margin-bottom: 1px;
+    margin: 5px 0px;
   }
 
   &__desc {
+    margin: 2px 0px;
+  }
+
+  &__date {
+    margin: 10px 0px 0px;
   }
 }

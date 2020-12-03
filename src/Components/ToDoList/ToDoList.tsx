@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import ToDoItem from "../ToDoItem/ToDoItem";
+import ToDoItem from "components/ToDoItem/ToDoItem";
 
 import { ToDo } from "constants/types/ToDo";
 
@@ -10,16 +10,19 @@ const ToDoList = () => {
       id: 0,
       title: "Task 1",
       desc: "Lorem ipsum set dolores",
+      dateStart: new Date(),
     },
     {
       id: 1,
       title: "Task 2",
       desc: "Lorem ipsum set dolores uno dos tres",
+      dateStart: new Date(),
     },
     {
       id: 2,
       title: "Task 3",
       desc: "Hello World",
+      dateStart: new Date(),
     },
   ];
 
