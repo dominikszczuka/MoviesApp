@@ -19,10 +19,6 @@ const Nav = () => {
       title: `${t("menu.pos2")}`,
       to: "/task",
     },
-    {
-      title: `${t("menu.pos3")}`,
-      to: "/task",
-    },
   ];
 
   const renderLinksItems = (): ReactNode =>

@@ -1,8 +1,8 @@
 import React from "react";
-import HomeScreen from "./screens/HomeScreen/HomeScreen";
+import LayoutWrapper from "../src/components/LayoutWrapper/LayoutWrapper";
 
 function App() {
-  return <HomeScreen />;
+  return <LayoutWrapper />;
 }
 
 export default App;

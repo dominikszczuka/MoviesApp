@@ -13,7 +13,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ todo }: ToDoItemProps) => {
   return (
     <div className={style()}>
       <p className={style("title")}>Title: {todo.title}</p>
-      <p>Description: {todo.desc}</p>
+      <p className={style("desc")}>Description: {todo.desc}</p>
     </div>
   );
 };
