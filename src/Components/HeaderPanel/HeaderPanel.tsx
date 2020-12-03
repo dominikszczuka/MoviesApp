@@ -6,17 +6,17 @@ import { default as HeaderPanelStyles } from "./HeaderPanel.module.scss";
 import Header from "components/Header/Header";
 
 interface Props {
-  titleButton: string;
+  buttonTitle: string;
 }
 
 const style = bemCssModule(HeaderPanelStyles);
 
-const HeaderPanel: React.FC<Props> = ({ titleButton }) => {
+const HeaderPanel: React.FC<Props> = ({ buttonTitle }) => {
   return (
     <div className={style()}>
       <Header />
       <Nav />
-      <button className={style("button")}>{titleButton}</button>
+      <button className={style("button")}>{buttonTitle}</button>
     </div>
   );
 };

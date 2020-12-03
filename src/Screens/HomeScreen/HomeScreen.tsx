@@ -11,7 +11,7 @@ const HomeScreen = () => {
   const { t } = useTranslation();
   return (
     <LayoutWrapper>
-      <HeaderPanel titleButton="Add task" />
+      <HeaderPanel buttonTitle="Add task" />
       <h1 className={style("title")}>{t("active-tasks")}</h1>
       <ToDo />
     </LayoutWrapper>

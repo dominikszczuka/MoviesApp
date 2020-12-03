@@ -8,7 +8,7 @@ const HistoryToDoScreen = () => {
 
   return (
     <LayoutWrapper>
-      <HeaderPanel titleButton="Clear tasks" />
+      <HeaderPanel buttonTitle="Clear tasks" />
       <h1>{t("history-tasks")}</h1>
     </LayoutWrapper>
   );
