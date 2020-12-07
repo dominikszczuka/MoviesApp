@@ -1,16 +1,24 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
-import ToDo from '../../components/ToDo/ToDo';
+import React from "react";
+import ToDo from "components/ToDo/ToDo";
+import bemCssModule from "bem-css-modules";
+import { default as HomeScreenStyles } from "./HomeScreen.module.scss";
+import LayoutWrapper from "components/LayoutWrapper/LayoutWrapper";
+import HeaderPanel from "components/HeaderPanel/HeaderPanel";
+import { useTranslation } from "react-i18next";
+const style = bemCssModule(HomeScreenStyles);
 
 const HomeScreen = () => {
-    return(
-        <>
-        <Header />
-        <Nav />
-        <ToDo />
-        </>
-    );
+  const { t } = useTranslation();
+
+  const btnAddTask = <button>Add task</button>;
+
+  return (
+    <LayoutWrapper>
+      <HeaderPanel actionButton={btnAddTask} />
+      <h1 className={style("title")}>{t("active-tasks")}</h1>
+      <ToDo />
+    </LayoutWrapper>
+  );
 };
 
 export default HomeScreen;
