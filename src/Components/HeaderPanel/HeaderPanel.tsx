@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Nav from "components/Nav/Nav";
 
 import bemCssModule from "bem-css-modules";
@@ -6,17 +6,17 @@ import { default as HeaderPanelStyles } from "./HeaderPanel.module.scss";
 import Header from "components/Header/Header";
 
 interface Props {
-  buttonTitle: string;
+  actionButton: ReactNode;
 }
 
 const style = bemCssModule(HeaderPanelStyles);
 
-const HeaderPanel: React.FC<Props> = ({ buttonTitle }) => {
+const HeaderPanel: React.FC<Props> = ({ actionButton }) => {
   return (
     <div className={style()}>
       <Header />
       <Nav />
-      <button className={style("button")}>{buttonTitle}</button>
+      {actionButton}
     </div>
   );
 };

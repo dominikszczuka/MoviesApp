@@ -9,9 +9,12 @@ const style = bemCssModule(HomeScreenStyles);
 
 const HomeScreen = () => {
   const { t } = useTranslation();
+
+  const btnAddTask = <button>Add task</button>;
+
   return (
     <LayoutWrapper>
-      <HeaderPanel buttonTitle="Add task" />
+      <HeaderPanel actionButton={btnAddTask} />
       <h1 className={style("title")}>{t("active-tasks")}</h1>
       <ToDo />
     </LayoutWrapper>
