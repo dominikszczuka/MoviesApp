@@ -4,20 +4,20 @@ import NavLink from "../NavLink/NavLink";
 import { default as NavLinkStyles } from "./Nav.module.scss";
 import bemCssModule from "bem-css-modules";
 import { useTranslation } from "react-i18next";
-import { LinkElements } from "constants/types/Link";
+import { LinkElement } from "constants/types/LinkElement";
 
 const style = bemCssModule(NavLinkStyles);
 
 const Nav = () => {
   const { t } = useTranslation();
 
-  const links: LinkElements[] = [
+  const links: LinkElement[] = [
     {
-      title: `${t("menu.pos1")}`,
+      title: `${t("menu.tasks")}`,
       to: "/",
     },
     {
-      title: `${t("menu.pos2")}`,
+      title: `${t("menu.finished-tasks")}`,
       to: "/history",
     },
   ];

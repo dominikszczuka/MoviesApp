@@ -1,4 +1,4 @@
-export interface LinkElements {
+export interface LinkElement {
   title: string;
   to: string;
 }
