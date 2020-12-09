@@ -4,6 +4,6 @@ export interface BasicToDo {
   desc: string;
 }
 
-export interface ToDo extends BasicToDo {
+export interface TodoTypes extends BasicToDo {
   dateStart: Date;
 }

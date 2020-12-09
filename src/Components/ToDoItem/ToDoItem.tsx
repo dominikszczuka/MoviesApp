@@ -1,16 +1,16 @@
 import React from "react";
 import { default as toDoItemStyles } from "./ToDoItem.module.scss";
 import bemCssModule from "bem-css-modules";
-import { ToDo } from "constants/types/ToDo";
+import { TodoTypes } from "constants/types/TodoTypes";
 import { useTranslation } from "react-i18next";
 
 const style = bemCssModule(toDoItemStyles);
 
-export interface ToDoItemProps {
-  todo: ToDo;
+export interface TodoItemProps {
+  todo: TodoTypes;
 }
 
-const ToDoItem: React.FC<ToDoItemProps> = ({ todo }: ToDoItemProps) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
   const { t } = useTranslation();
 
   return (
@@ -28,4 +28,4 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ todo }: ToDoItemProps) => {
   );
 };
 
-export default ToDoItem;
+export default TodoItem;

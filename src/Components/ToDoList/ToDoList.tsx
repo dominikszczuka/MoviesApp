@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 
-import ToDoItem from "components/ToDoItem/ToDoItem";
+import TodoItem from "components/TodoItem/TodoItem";
 
-import { ToDo } from "constants/types/ToDo";
+import { TodoTypes } from "constants/types/TodoTypes";
 
-const ToDoList = () => {
-  const listItems: ToDo[] = [
+const TodoList = () => {
+  const listItems: TodoTypes[] = [
     {
       id: 0,
       title: "Task 1",
@@ -27,9 +27,9 @@ const ToDoList = () => {
   ];
 
   const renderToDoList = (): ReactNode =>
-    listItems.map((todo) => <ToDoItem key={todo.id} todo={todo} />);
+    listItems.map((todo) => <TodoItem key={todo.id} todo={todo} />);
 
   return <>{renderToDoList()}</>;
 };
 
-export default ToDoList;
+export default TodoList;
