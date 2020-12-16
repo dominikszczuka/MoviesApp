@@ -19,10 +19,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
         {t("task.title")}: {todo.title}
       </p>
       <p className={style("desc")}>
-        {t("task.description")}: {todo.desc}
-      </p>
-      <p className={style("date")}>
-        {t("task.date-start")}: {todo.dateStart.toISOString()}
+        {t("task.description")}: {todo.completed}
       </p>
     </div>
   );

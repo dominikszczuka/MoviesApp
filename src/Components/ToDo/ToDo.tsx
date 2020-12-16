@@ -1,5 +1,5 @@
-import TodoList from "components/TodoList/TodoList";
 import React from "react";
+import TodoList from "components/TodoList/TodoList";
 
 const Todo = () => {
   return (
