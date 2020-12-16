@@ -1,12 +1,12 @@
 import React from "react";
-import ToDoList from "../ToDoList/ToDoList";
+import TodoList from "components/TodoList/TodoList";
 
-const ToDo = () => {
+const Todo = () => {
   return (
     <>
-      <ToDoList />
+      <TodoList />
     </>
   );
 };
 
-export default ToDo;
+export default Todo;
