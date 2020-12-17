@@ -7,13 +7,13 @@ import HeaderPanel from "components/HeaderPanel/HeaderPanel";
 import { useTranslation } from "react-i18next";
 import { fetchTodos } from "store/todo/todoActions";
 import { useDispatch } from "react-redux";
+import Form from "components/Form/Form";
 
 const style = bemCssModule(HomeScreenStyles);
 
 const HomeScreen = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-
   const btnAddTask = <button>Add task</button>;
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const HomeScreen = () => {
     <LayoutWrapper>
       <HeaderPanel actionButton={btnAddTask} />
       <h1 className={style("title")}>{t("active-tasks")}</h1>
+      <Form />
       <Todo />
     </LayoutWrapper>
   );
