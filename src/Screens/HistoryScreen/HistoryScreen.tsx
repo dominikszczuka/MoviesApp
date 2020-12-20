@@ -6,11 +6,9 @@ import { useTranslation } from "react-i18next";
 const HistoryToDoScreen = () => {
   const { t } = useTranslation();
 
-  const btnDeleteTasks = <button> Clear Tasks</button>;
-
   return (
     <LayoutWrapper>
-      <HeaderPanel actionButton={btnDeleteTasks} />
+      <HeaderPanel />
       <h1>{t("history-tasks")}</h1>
     </LayoutWrapper>
   );
