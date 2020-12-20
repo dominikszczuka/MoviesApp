@@ -1,22 +1,25 @@
-import React, { ReactNode, useEffect } from "react";
-import TodoItem from "components/TodoItem/TodoItem";
+import React, { ReactNode } from "react";
+import { useSelector } from "react-redux";
+import { StyleSheet, css } from "aphrodite";
 
-import { useDispatch, useSelector } from "react-redux";
+import TodoItem from "components/TodoItem/TodoItem";
 import { AppState } from "store/store";
-import { fetchTodos } from "store/todo/todoActions";
 
 const TodoList = () => {
-  const dispatch = useDispatch();
   const { todos } = useSelector((state: AppState) => state.todosReducer);
 
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
-
   const renderToDoList = (): ReactNode =>
-    todos.map((todo) => <TodoItem key={todo.id} todo={todo} />);
+    todos.map((todo, index) => <TodoItem key={index} todo={todo} />);
 
-  return <>{renderToDoList()}</>;
+  return <div className={css(style.wrapper)}>{renderToDoList()}</div>;
 };
 
+const style = StyleSheet.create({
+  wrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 export default TodoList;
