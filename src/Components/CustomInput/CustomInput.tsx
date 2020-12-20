@@ -25,7 +25,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         disabled={disabled}
-        className={css(styles.input, customStyle)}
+        className={css(styles.input, customStyle, disabled && styles.disabled)}
       />
     </div>
   );
@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     height: "50px",
     borderColor: "green",
     fontWeight: "bold",
+  },
+  disabled: {
+    backgroundColor: "gray",
+    borderColor: "black",
+    cursor: "not-allowed",
   },
 });
 

@@ -10,7 +10,7 @@ const Form = () => {
         <CustomInput
           placeholder="Write title your task..."
           type="text"
-          disabled={false}
+          disabled={true}
           customStyle={styles.inputText}
         />
       </form>
