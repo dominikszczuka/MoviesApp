@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 import { fetchTodos } from "store/todo/todoActions";
 import { useDispatch } from "react-redux";
 import Form from "components/Form/Form";
-import { StyleSheet } from "aphrodite";
 import CustomButton from "components/CustomButton/CustomButton";
 
 const style = bemCssModule(HomeScreenStyles);
@@ -16,7 +15,10 @@ const style = bemCssModule(HomeScreenStyles);
 const HomeScreen = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const btnAddTask = (
+    <CustomButton label="Add task" onClick={() => setShowForm(!showForm)} />
+  );
 
   useEffect(() => {
     dispatch(fetchTodos());
@@ -24,26 +26,12 @@ const HomeScreen = () => {
 
   return (
     <LayoutWrapper>
-      <HeaderPanel />
-      <CustomButton
-        label="Add task"
-        onClick={() => setShowForm(!showForm)}
-        filled={false}
-        disabled={false}
-        customStyles={styles.btn}
-      />
+      <HeaderPanel actionButton={btnAddTask} />
       <h1 className={style("title")}>{t("active-tasks")}</h1>
       {showForm && <Form />}
       <Todo />
     </LayoutWrapper>
   );
 };
-
-const styles = StyleSheet.create({
-  btn: {
-    border: "1px solid blue",
-    color: "blue",
-  },
-});
 
 export default HomeScreen;

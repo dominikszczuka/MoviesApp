@@ -4,9 +4,9 @@ import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 export interface CustomButtonProps {
   onClick: () => void;
   label: string;
-  customStyles: StyleDeclaration;
-  disabled: boolean;
-  filled: boolean;
+  customStyles?: StyleDeclaration;
+  disabled?: boolean;
+  filled?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({

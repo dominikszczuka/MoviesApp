@@ -5,10 +5,10 @@ import { StyleSheet, css, StyleDeclaration } from "aphrodite";
 export interface CustomInputProps {
   type: "text" | "number" | "email";
   placeholder: string;
-  disabled: boolean;
+  disabled?: boolean;
   // eslint-disable-next-line no-unused-vars
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  customStyle: StyleDeclaration;
+  customStyle?: StyleDeclaration;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
