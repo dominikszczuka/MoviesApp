@@ -5,13 +5,13 @@ import bemCssModule from "bem-css-modules";
 import { default as HeaderPanelStyles } from "./HeaderPanel.module.scss";
 import Header from "components/Header/Header";
 
-interface Props {
+const style = bemCssModule(HeaderPanelStyles);
+
+interface HeaderPanelProps {
   actionButton: ReactNode;
 }
 
-const style = bemCssModule(HeaderPanelStyles);
-
-const HeaderPanel: React.FC<Props> = ({ actionButton }) => {
+const HeaderPanel: React.FC<HeaderPanelProps> = ({ actionButton }) => {
   return (
     <div className={style()}>
       <Header />
