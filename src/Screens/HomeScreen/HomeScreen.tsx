@@ -17,7 +17,10 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState<boolean>(false);
   const btnAddTask = (
-    <CustomButton label="Add task" onClick={() => setShowForm(!showForm)} />
+    <CustomButton
+      label={t("add-task")}
+      onClick={() => setShowForm(!showForm)}
+    />
   );
 
   useEffect(() => {

@@ -2,14 +2,15 @@
   "title-app": "todoapp&react",
   "menu": {
     "tasks": "Tasks",
-    "finished-tasks": "Finished tasks",
-    "pos3": "Add task"
+    "finished-tasks": "Finished tasks"
   },
   "task": {
     "title": "Title",
     "description": "Description",
     "date-start": "Date start task"
   },
+  "add-task": "Add task",
+  "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
   "history-tasks": "History tasks"
 }

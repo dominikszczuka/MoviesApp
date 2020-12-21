@@ -8,7 +8,7 @@ const HistoryToDoScreen = () => {
   const { t } = useTranslation();
   const showMessage = () => {};
   const btnDeleteTasksAll = (
-    <CustomButton label="Delete tasks" onClick={() => showMessage()} />
+    <CustomButton label={t("delete-task")} onClick={() => showMessage()} />
   );
 
   return (
