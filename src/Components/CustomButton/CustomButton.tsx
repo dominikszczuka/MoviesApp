@@ -1,5 +1,6 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
+import Icon, { IconTypes } from "components/Icon/Icon";
 
 export interface CustomButtonProps {
   onClick: () => void;
@@ -7,6 +8,7 @@ export interface CustomButtonProps {
   customStyles?: StyleDeclaration;
   disabled?: boolean;
   filled?: boolean;
+  icon?: IconTypes;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -15,6 +17,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   disabled,
   customStyles,
   filled,
+  icon,
 }) => {
   return (
     <div>
@@ -25,6 +28,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         data-filled={filled}
       >
         {label}
+        {!!icon && <Icon {...icon} />}
       </button>
     </div>
   );
@@ -32,7 +36,6 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
 const styles = StyleSheet.create({
   btn: {
-    height: "40px",
     backgroundColor: "#fff",
     fontSize: "16px",
     fontWeight: "bold",
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: "5px",
     boxShadow: "2px 2px 2px 2px #000",
     marginTop: "15px",
+    padding: "5px",
   },
   hover: {
     ":hover": {
