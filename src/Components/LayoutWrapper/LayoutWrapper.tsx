@@ -1,13 +1,16 @@
 import React from "react";
-
-import bemCssModule from "bem-css-modules";
-import { default as LayoutWrapperStyles } from "./LayoutWrapper.module.scss";
-const style = bemCssModule(LayoutWrapperStyles);
-
+import { css, StyleSheet } from "aphrodite";
 interface Props {}
 
 const LayoutWrapper: React.FC<Props> = ({ children }) => {
-  return <div className={style()}>{children}</div>;
+  return <div className={css(style.wrapper)}>{children}</div>;
 };
+
+const style = StyleSheet.create({
+  wrapper: {
+    maxWidth: "1200px",
+    margin: "0px auto",
+  },
+});
 
 export default LayoutWrapper;

@@ -1,11 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { default as NavLinkStyles } from "../Nav/Nav.module.scss";
-import bemCssModule from "bem-css-modules";
+
 import { LinkElement } from "constants/types/LinkElement";
 import { Link } from "react-router-dom";
-
-const style = bemCssModule(NavLinkStyles);
+import { StyleSheet, css } from "aphrodite";
+import { palette } from "styles/palette";
 
 export interface NavLinkProps {
   link: LinkElement;
@@ -15,12 +14,19 @@ const NavLink: React.FC<NavLinkProps> = ({ link }) => {
   const { t } = useTranslation();
 
   return (
-    <li className={style("item")}>
-      <Link to={link.to} className={style("link")}>
+    <li>
+      <Link className={css(style.linkElement)} to={link.to}>
         {t(`${link.title}`)}
       </Link>
     </li>
   );
 };
+
+const style = StyleSheet.create({
+  linkElement: {
+    color: `${palette.white}`,
+    textDecoration: "none",
+  },
+});
 
 export default NavLink;

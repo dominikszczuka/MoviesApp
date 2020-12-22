@@ -4,7 +4,7 @@ import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { StyleSheet, css } from "aphrodite";
 export interface IconTypes {
   iconName: IconName;
-  iconSize?: "1x" | "2x";
+  iconSize?: "1x" | "2x" | "3x";
   color?: string;
 }
 

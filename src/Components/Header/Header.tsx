@@ -1,15 +1,23 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import "./header.css";
-
+import { StyleSheet, css } from "aphrodite";
+import { palette } from "styles/palette";
+import { typography } from "styles/typography";
 const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <header className="header">
-      <p className="header__logo">{t("title-app")} </p>
-    </header>
+    <p className={css(typography.logoFont, styles.logoText)}>
+      {t("title-app")}{" "}
+    </p>
   );
 };
+
+const styles = StyleSheet.create({
+  logoText: {
+    color: `${palette.white}`,
+    textShadow: `2px 2px 2px 2px ${palette.black}`,
+  },
+});
 
 export default Header;
