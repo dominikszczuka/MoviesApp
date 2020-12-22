@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "./i18n";
-
+import "./IconsLibrary";
 ReactDOM.render(
   <React.StrictMode>
     <App />

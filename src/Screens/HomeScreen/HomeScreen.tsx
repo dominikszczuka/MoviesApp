@@ -9,6 +9,7 @@ import { fetchTodos } from "store/todo/todoActions";
 import { useDispatch } from "react-redux";
 import Form from "components/Form/Form";
 import CustomButton from "components/CustomButton/CustomButton";
+import { Icons } from "constants/enums/Icons";
 
 const style = bemCssModule(HomeScreenStyles);
 
@@ -20,6 +21,10 @@ const HomeScreen = () => {
     <CustomButton
       label={t("add-task")}
       onClick={() => setShowForm(!showForm)}
+      icon={{
+        iconName: Icons.calendarPlus,
+        color: "#898989",
+      }}
     />
   );
 
