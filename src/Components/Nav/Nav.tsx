@@ -1,12 +1,11 @@
 import React, { ReactNode } from "react";
 
 import NavLink from "../NavLink/NavLink";
-import { default as NavLinkStyles } from "./Nav.module.scss";
-import bemCssModule from "bem-css-modules";
+
 import { useTranslation } from "react-i18next";
 import { LinkElement } from "constants/types/LinkElement";
-
-const style = bemCssModule(NavLinkStyles);
+import { StyleSheet, css } from "aphrodite";
+import { typography, palette } from "styles/index";
 
 const Nav = () => {
   const { t } = useTranslation();
@@ -26,10 +25,22 @@ const Nav = () => {
     links.map((link, index) => <NavLink key={index} link={link} />);
 
   return (
-    <nav className={style()}>
-      <ul className={style("list")}>{renderLinksItems()}</ul>
+    <nav>
+      <ul className={css(typography.bigFont, style.navigation)}>
+        {renderLinksItems()}
+      </ul>
     </nav>
   );
 };
+
+const style = StyleSheet.create({
+  navigation: {
+    display: "flex",
+    justifyContent: "space-around",
+    width: "250px",
+    color: `${palette.white}`,
+    listStyle: "none",
+  },
+});
 
 export default Nav;

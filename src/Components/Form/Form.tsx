@@ -1,17 +1,25 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite";
 import CustomInput from "components/CustomInput/CustomInput";
+import { palette, typography } from "styles/index";
+import { useTranslation } from "react-i18next";
 
 const Form = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className={css(styles.wrapper)}>
-      <h2>Add new tasks</h2>
-      <form>
+    <div className={css(styles.formWrapper)}>
+      <h2 className={css(styles.formTitle)}>{t("add-new-task")}</h2>
+      <form className={css(styles.form)}>
         <CustomInput
-          placeholder="Write title your task..."
+          placeholder={t("form.write-title")}
           type="text"
-          disabled={true}
-          customStyle={styles.inputText}
+          disabled={false}
+        />
+        <CustomInput
+          placeholder={t("form.write-description")}
+          type="text"
+          disabled={false}
         />
       </form>
     </div>
@@ -19,14 +27,23 @@ const Form = () => {
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
+  formWrapper: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    alignItems: "center",
+    margin: "5px 0px",
+    backgroundColor: `${palette.darkBlueTwo}`,
   },
-  inputText: {
-    height: "24px",
-    borderColor: "red",
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  formTitle: {
+    ...typography.logoFont,
+    color: `${palette.white}`,
   },
 });
 

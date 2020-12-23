@@ -1,4 +1,4 @@
-import { TodoTypes } from "constants/types/TodoTypes";
+import { TodoType } from "constants/types/TodoTypes";
 
 export const ADD_TODOS = "ADD_TODOS";
 export const DELETE_TODOS = "DELETE_TODOS";
@@ -11,12 +11,12 @@ export const FETCH_TODOS_REJECTED = "FETCH_TODOS_REJECTED";
 // -------------TODO LOCAL-------------
 export interface AddTodos {
   type: typeof ADD_TODOS;
-  payload: TodoTypes;
+  payload: TodoType;
 }
 
 export interface DeleteTodos {
   type: typeof DELETE_TODOS;
-  payload: TodoTypes;
+  payload: TodoType;
 }
 // ------------------------------------
 
@@ -31,7 +31,7 @@ export interface FetchTodosPending {
 
 export interface FetchTodosResolved {
   type: typeof FETCH_TODOS_RESOLVED;
-  payload: TodoTypes[];
+  payload: TodoType[];
 }
 
 export interface FetchTodosRejected {

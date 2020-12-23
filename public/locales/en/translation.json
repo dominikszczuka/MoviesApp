@@ -1,5 +1,5 @@
 {
-  "title-app": "todoapp&react",
+  "title-app": "todoapp",
   "menu": {
     "tasks": "Tasks",
     "finished-tasks": "Finished tasks"
@@ -10,7 +10,12 @@
     "date-start": "Date start task"
   },
   "add-task": "Add task",
+  "add-new-task": "Add new task",
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
-  "history-tasks": "History tasks"
+  "history-tasks": "History tasks",
+  "form": {
+    "write-title": "Write title your task....",
+    "write-description": "Write description about your task..."
+  }
 }

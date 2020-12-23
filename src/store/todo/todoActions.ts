@@ -1,12 +1,12 @@
-import { TodoTypes } from "constants/types/TodoTypes";
+import { TodoType } from "constants/types/TodoTypes";
 import * as todosTypes from "./todoTypes";
 
-export const addTodos = (todo: TodoTypes): todosTypes.AddTodos => ({
+export const addTodos = (todo: TodoType): todosTypes.AddTodos => ({
   type: todosTypes.ADD_TODOS,
   payload: todo,
 });
 
-export const deleteTodos = (todo: TodoTypes): todosTypes.DeleteTodos => ({
+export const deleteTodos = (todo: TodoType): todosTypes.DeleteTodos => ({
   type: todosTypes.DELETE_TODOS,
   payload: todo,
 });
@@ -20,7 +20,7 @@ export const fetchTodosPending = (): todosTypes.FetchTodosPending => ({
 });
 
 export const fetchTodosResolved = (
-  todos: TodoTypes[]
+  todos: TodoType[]
 ): todosTypes.FetchTodosResolved => ({
   type: todosTypes.FETCH_TODOS_RESOLVED,
   payload: todos,

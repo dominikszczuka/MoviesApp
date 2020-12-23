@@ -20,6 +20,7 @@ const style = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    width: "100%",
   },
 });
 export default TodoList;

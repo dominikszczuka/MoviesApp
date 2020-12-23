@@ -1,6 +1,7 @@
 import React from "react";
 
 import { StyleSheet, css, StyleDeclaration } from "aphrodite";
+import { palette } from "styles/palette";
 
 export interface CustomInputProps {
   type: "text" | "number" | "email";
@@ -19,28 +20,26 @@ const CustomInput: React.FC<CustomInputProps> = ({
   customStyle,
 }: CustomInputProps) => {
   return (
-    <div>
-      <input
-        type={type}
-        placeholder={placeholder}
-        onChange={onChange}
-        disabled={disabled}
-        className={css(styles.input, customStyle, disabled && styles.disabled)}
-      />
-    </div>
+    <input
+      type={type}
+      placeholder={placeholder}
+      onChange={onChange}
+      disabled={disabled}
+      className={css(styles.input, customStyle, disabled && styles.disabled)}
+    />
   );
 };
 
 const styles = StyleSheet.create({
   input: {
-    height: "50px",
-    borderColor: "green",
-    fontWeight: "bold",
+    width: "400px",
+    padding: "10px 5px",
+    margin: "10px 0px",
+    border: `3px solid ${palette.darkBlue}`,
+    borderRadius: "10px",
   },
   disabled: {
     backgroundColor: "gray",
-    borderColor: "black",
-    cursor: "not-allowed",
   },
 });
 
