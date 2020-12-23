@@ -3,7 +3,7 @@ export interface BasicToDo {
   title: string;
 }
 
-export interface TodoTypes extends BasicToDo {
+export interface TodoType extends BasicToDo {
   userId: number;
   completed: boolean;
 }

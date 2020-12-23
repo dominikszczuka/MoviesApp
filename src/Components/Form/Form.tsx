@@ -1,8 +1,7 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite";
 import CustomInput from "components/CustomInput/CustomInput";
-import { palette } from "styles/palette";
-import { typography } from "styles/typography";
+import { palette, typography } from "styles/index";
 import { useTranslation } from "react-i18next";
 
 const Form = () => {
@@ -10,17 +9,15 @@ const Form = () => {
 
   return (
     <div className={css(styles.formWrapper)}>
-      <h2 className={css(typography.logoFont, styles.formTitle)}>
-        {t("add-new-task")}
-      </h2>
+      <h2 className={css(styles.formTitle)}>{t("add-new-task")}</h2>
       <form className={css(styles.form)}>
         <CustomInput
-          placeholder="Write title your task..."
+          placeholder={t("form.write-title")}
           type="text"
           disabled={false}
         />
         <CustomInput
-          placeholder="Write description"
+          placeholder={t("form.write-description")}
           type="text"
           disabled={false}
         />
@@ -45,6 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   formTitle: {
+    ...typography.logoFont,
     color: `${palette.white}`,
   },
 });

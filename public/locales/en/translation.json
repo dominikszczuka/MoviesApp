@@ -13,5 +13,9 @@
   "add-new-task": "Add new task",
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
-  "history-tasks": "History tasks"
+  "history-tasks": "History tasks",
+  "form": {
+    "write-title": "Write title your task....",
+    "write-description": "Write description about your task..."
+  }
 }

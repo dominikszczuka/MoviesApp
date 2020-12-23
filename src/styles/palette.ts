@@ -11,3 +11,5 @@ export const palette = {
   darkGray: "#3A405A",
   black: "#000000",
 };
+
+export const shadow = `2px 2px 2px ${palette.darkGray}`;

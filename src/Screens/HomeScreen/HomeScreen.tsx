@@ -9,8 +9,7 @@ import Form from "components/Form/Form";
 import CustomButton from "components/CustomButton/CustomButton";
 import { Icons } from "constants/enums/Icons";
 import { StyleSheet, css } from "aphrodite";
-import { palette } from "styles/palette";
-import { typography } from "styles/typography";
+import { palette, typography, shadow } from "styles/index";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
     color: `${palette.white}`,
     background: `${palette.lightRed}`,
     border: `2px solid ${palette.darkRed}`,
-    boxShadow: `2px 2px 3px ${palette.black}`,
+    boxShadow: `${shadow}`,
   },
   tasksInformation: {
     display: "flex",
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     padding: "5px",
     backgroundColor: `${palette.darkBlueTwo}`,
     borderRadius: "5px",
-    boxShadow: `2px 2px 2px ${palette.darkGray}`,
+    boxShadow: `${shadow}`,
   },
   tasksHeader: {
     color: `${palette.white}`,

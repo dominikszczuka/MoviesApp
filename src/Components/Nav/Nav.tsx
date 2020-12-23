@@ -5,8 +5,7 @@ import NavLink from "../NavLink/NavLink";
 import { useTranslation } from "react-i18next";
 import { LinkElement } from "constants/types/LinkElement";
 import { StyleSheet, css } from "aphrodite";
-import { palette } from "styles/palette";
-import { typography } from "styles/typography";
+import { typography, palette } from "styles/index";
 
 const Nav = () => {
   const { t } = useTranslation();

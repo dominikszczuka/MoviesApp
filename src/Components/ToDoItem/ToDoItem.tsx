@@ -1,18 +1,17 @@
 import React from "react";
-import { TodoTypes } from "constants/types/TodoTypes";
+import { TodoType } from "constants/types/TodoTypes";
 import { css, StyleSheet } from "aphrodite";
-import { palette } from "styles/palette";
-import { typography } from "styles/typography";
+import { typography, palette, shadow } from "styles/index";
 import Icon from "components/Icon/Icon";
 import { Icons } from "constants/enums/Icons";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export interface TodoItemProps {
-  todo: TodoTypes;
+  todo: TodoType;
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className={css(styles.taskWrapp)}>
@@ -23,7 +22,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
         <Icon iconName={Icons.faGraduationCap} iconSize="2x" />
       </div>
       <p className={css(typography.normalFont, styles.taskDescription)}>
-        Description:
+        {t("task.description")}
       </p>
       <p className={css(styles.taskDescriptionText)}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
     border: `2px solid ${palette.darkBlue}`,
     borderRadius: "5px 5px 5px 5px",
     color: `${palette.white}`,
-    boxShadow: `2px 2px 4px ${palette.darkGray}`,
+    boxShadow: `${shadow}`,
   },
   taskHeader: {
     display: "flex",

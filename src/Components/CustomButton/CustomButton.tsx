@@ -1,8 +1,8 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 import Icon, { IconTypes } from "components/Icon/Icon";
-import { typography } from "styles/typography";
-//import { palette } from "styles/palette";
+import { typography } from "styles/index";
+
 export interface CustomButtonProps {
   onClick: () => void;
   label: string;

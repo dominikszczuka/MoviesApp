@@ -1,8 +1,8 @@
-import { TodoTypes } from "constants/types/TodoTypes";
+import { TodoType } from "constants/types/TodoTypes";
 import * as todosTypes from "./todoTypes";
 
 interface State {
-  todos: TodoTypes[];
+  todos: TodoType[];
   loading: boolean;
   error: string | null;
 }
