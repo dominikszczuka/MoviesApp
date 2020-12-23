@@ -1,4 +1,2 @@
-import { palette, shadow } from "./palette";
-import { typography } from "./typography";
-
-export { palette, shadow, typography };
+export * from "./palette";
+export * from "./typography";
