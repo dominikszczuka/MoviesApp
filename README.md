@@ -1,7 +1,5 @@
 # TodoApp
 
-It
-
 ## Table of contents
 
 - [Instalation](#installation)
@@ -10,17 +8,17 @@ It
 
 ## Installation
 
-Use the npm to install TodoApp
+Install TodoApp with command
 
-```bash
+```npm
 npm install
 ```
 
 ## Start App
 
-After installation, you can run app.
+After installation, run app with command.
 
-```bash
+```npm
 npm start
 ```
 
