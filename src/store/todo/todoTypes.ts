@@ -1,3 +1,4 @@
+import { Message } from "constants/types/Message";
 import { TodoType } from "constants/types/TodoTypes";
 
 export const ADD_TODOS = "ADD_TODOS";
@@ -23,7 +24,7 @@ export interface DeleteTodos {
 // ------------- FETCH TODOS-----------
 export interface FetchTodos {
   type: typeof FETCH_TODOS;
-  payload: Function;
+  payload: (message: string, typeMessage: Message) => void;
 }
 
 export interface FetchTodosPending {

@@ -17,5 +17,8 @@
   "form": {
     "write-title": "Write title your task....",
     "write-description": "Write description about your task..."
+  },
+  "alert": {
+    "fetch-data": "Data was downloaded"
   }
 }

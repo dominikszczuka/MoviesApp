@@ -1,3 +1,4 @@
+import { Message } from "constants/types/Message";
 import { TodoType } from "constants/types/TodoTypes";
 import * as todosTypes from "./todoTypes";
 
@@ -11,7 +12,9 @@ export const deleteTodos = (todo: TodoType): todosTypes.DeleteTodos => ({
   payload: todo,
 });
 
-export const fetchTodos = (callback: Function): todosTypes.FetchTodos => ({
+export const fetchTodos = (
+  callback: (message: string, typeMessage: Message) => void
+): todosTypes.FetchTodos => ({
   type: todosTypes.FETCH_TODOS,
   payload: callback,
 });

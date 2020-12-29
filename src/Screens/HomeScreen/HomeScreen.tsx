@@ -11,6 +11,7 @@ import { Icons } from "constants/enums/Icons";
 import { StyleSheet, css } from "aphrodite";
 import { palette, typography, shadow } from "styles/index";
 import { useAlert } from "react-alert";
+import { Message } from "constants/types/Message";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
@@ -30,9 +31,23 @@ const HomeScreen = () => {
     />
   );
 
+  const showAlert = (message: string, typeMessage: Message) => {
+    switch (typeMessage) {
+      case "SUCCESS":
+        alert.success(t(message));
+        break;
+      case "SHOW":
+        alert.show(message);
+        break;
+      case "ERROR":
+        alert.error(message);
+        break;
+    }
+  };
+
   useEffect(() => {
-    dispatch(fetchTodos(alert.show("Fetch todos")));
-  }, [dispatch, alert]);
+    dispatch(fetchTodos(showAlert));
+  }, [dispatch]);
 
   return (
     <LayoutWrapper>

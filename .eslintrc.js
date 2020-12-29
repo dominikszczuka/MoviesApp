@@ -5,9 +5,9 @@ module.exports = {
     es6: true,
   },
   extends: [
-    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/strict",
   ],
@@ -22,7 +22,8 @@ module.exports = {
   plugins: ["react", "jsx-a11y", "@typescript-eslint"],
   rules: {
     endOfLine: "off",
-    "react-hooks/exhaustive-deps": "error",
+    "no-unused-vars": "off",
+    "react-hooks/exhaustive-deps": "off",
     "no-var": "error",
     "brace-style": "error",
     "prefer-template": "error",
