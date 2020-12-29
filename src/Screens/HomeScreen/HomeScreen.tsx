@@ -10,11 +10,14 @@ import CustomButton from "components/CustomButton/CustomButton";
 import { Icons } from "constants/enums/Icons";
 import { StyleSheet, css } from "aphrodite";
 import { palette, typography, shadow } from "styles/index";
+import { useAlert } from "react-alert";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState<boolean>(false);
+  const alert = useAlert();
+
   const btnAddTask = (
     <CustomButton
       label={t("add-task")}
@@ -28,8 +31,8 @@ const HomeScreen = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
+    dispatch(fetchTodos(alert.show("Fetch todos")));
+  }, [dispatch, alert]);
 
   return (
     <LayoutWrapper>

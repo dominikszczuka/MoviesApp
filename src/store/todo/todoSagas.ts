@@ -1,6 +1,8 @@
 import { getTodosApi } from "api/todoApi";
+
 import { TodoType } from "constants/types/TodoTypes";
 import { call, fork, put, takeLatest } from "redux-saga/effects";
+
 import * as todosActions from "./todoActions";
 import * as todosTypes from "./todoTypes";
 

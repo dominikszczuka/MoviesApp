@@ -23,6 +23,7 @@ export interface DeleteTodos {
 // ------------- FETCH TODOS-----------
 export interface FetchTodos {
   type: typeof FETCH_TODOS;
+  payload: Function;
 }
 
 export interface FetchTodosPending {

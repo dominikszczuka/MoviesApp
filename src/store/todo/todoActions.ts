@@ -11,8 +11,9 @@ export const deleteTodos = (todo: TodoType): todosTypes.DeleteTodos => ({
   payload: todo,
 });
 
-export const fetchTodos = (): todosTypes.FetchTodos => ({
+export const fetchTodos = (callback: Function): todosTypes.FetchTodos => ({
   type: todosTypes.FETCH_TODOS,
+  payload: callback,
 });
 
 export const fetchTodosPending = (): todosTypes.FetchTodosPending => ({
