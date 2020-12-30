@@ -2,6 +2,9 @@ import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 import Icon, { IconTypes } from "components/Icon/Icon";
 import { typography } from "styles/index";
+import { useSelector } from "react-redux";
+import { AppState } from "store/store";
+import Loader from "components/Loader/Loader";
 
 export interface CustomButtonProps {
   onClick: () => void;
@@ -10,6 +13,7 @@ export interface CustomButtonProps {
   disabled?: boolean;
   filled?: boolean;
   icon?: IconTypes;
+  isLoading?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -19,7 +23,10 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   customStyles,
   filled,
   icon,
+  isLoading,
 }) => {
+  const { loading } = useSelector((state: AppState) => state.todosReducer);
+
   return (
     <div>
       <button
@@ -33,8 +40,11 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         )}
         data-filled={filled}
       >
-        {label}
-        {!!icon && <Icon {...icon} />}
+        {isLoading && loading ? (
+          <Loader />
+        ) : (
+          label && !!icon && <Icon {...icon} />
+        )}
       </button>
     </div>
   );

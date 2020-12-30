@@ -3,11 +3,7 @@ import { css, StyleSheet } from "aphrodite";
 import { palette } from "styles";
 
 const Loader = () => {
-  return (
-    <div className={css(styles.wrapper)}>
-      <div className={css(styles.spinner)}></div>
-    </div>
-  );
+  return <div className={css(styles.spinner)}></div>;
 };
 
 const translateKeyframes = {
@@ -28,17 +24,17 @@ const styles = StyleSheet.create({
   },
   spinner: {
     display: "inline-block",
-    width: "80px",
-    height: "80px",
+    width: "40px",
+    height: "40px",
     ":after": {
       content: '" "',
       display: "block",
-      width: "64px",
-      height: "64px",
-      margin: "8px",
+      width: "24px",
+      height: "24px",
+      margin: "8px auto",
       borderRadius: "50%",
-      border: `6px solid ${palette.black}`,
-      borderColor: `${palette.black} transparent ${palette.black} transparent`,
+      border: `6px solid ${palette.darkBlueTwo}`,
+      borderColor: `${palette.darkBlueTwo} transparent ${palette.darkBlueTwo} transparent`,
       animation: `spinner 1.2s linear infinite`,
       animationName: [translateKeyframes],
     },
