@@ -31,7 +31,8 @@ const HomeScreen = () => {
         color: `${palette.white}`,
       }}
       customStyles={styles.customBtnStyles}
-      isLoading={true}
+      loading={loading}
+      disabled={loading}
     />
   );
 

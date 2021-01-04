@@ -1,9 +1,7 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 import Icon, { IconTypes } from "components/Icon/Icon";
-import { typography } from "styles/index";
-import { useSelector } from "react-redux";
-import { AppState } from "store/store";
+import { palette, typography } from "styles/index";
 import Loader from "components/Loader/Loader";
 
 export interface CustomButtonProps {
@@ -13,7 +11,7 @@ export interface CustomButtonProps {
   disabled?: boolean;
   filled?: boolean;
   icon?: IconTypes;
-  isLoading?: boolean;
+  loading?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -23,9 +21,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   customStyles,
   filled,
   icon,
-  isLoading,
+  loading,
 }) => {
-  const { loading } = useSelector((state: AppState) => state.todosReducer);
+  const labelContent = (
+    <>
+      {!!icon && <Icon {...icon} />}
+      <p>{label}</p>
+    </>
+  );
 
   return (
     <div>
@@ -36,15 +39,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
           styles.btn,
           typography.buttonFont,
           styles.hover,
-          customStyles
+          customStyles,
+          disabled && styles.disabled
         )}
         data-filled={filled}
       >
-        {isLoading && loading ? (
-          <Loader />
-        ) : (
-          label && !!icon && <Icon {...icon} />
-        )}
+        {loading ? <Loader /> : labelContent}
       </button>
     </div>
   );
@@ -55,11 +55,18 @@ const styles = StyleSheet.create({
     padding: "5px 10px",
     borderRadius: "5px",
     border: "none",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   hover: {
     ":hover": {
       cursor: "pointer",
     },
+  },
+  disabled: {
+    backgroundColor: `${palette.black}`,
+    border: `${palette.black}`,
   },
 });
 
