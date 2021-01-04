@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { StyleSheet, css } from "aphrodite";
 import { typography, palette } from "styles/index";
+
 const Header = () => {
   const { t } = useTranslation();
 

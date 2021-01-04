@@ -4,7 +4,7 @@ import LayoutWrapper from "components/LayoutWrapper/LayoutWrapper";
 import HeaderPanel from "components/HeaderPanel/HeaderPanel";
 import { useTranslation } from "react-i18next";
 import { fetchTodos } from "store/todo/todoActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Form from "components/Form/Form";
 import CustomButton from "components/CustomButton/CustomButton";
 import { Icons } from "constants/enums/Icons";
@@ -12,12 +12,21 @@ import { StyleSheet, css } from "aphrodite";
 import { palette, typography, shadow } from "styles/index";
 import { useAlert } from "react-alert";
 import { Message } from "constants/types/Message";
+import { AppState } from "store/store";
+import Loader from "components/Loader/Loader";
+
 
 const HomeScreen = () => {
   const { t } = useTranslation();
+
   const dispatch = useDispatch();
+
   const [showForm, setShowForm] = useState<boolean>(false);
+
   const alert = useAlert();
+
+  const { loading } = useSelector((state: AppState) => state.todosReducer);
+
 
   const btnAddTask = (
     <CustomButton
@@ -28,6 +37,8 @@ const HomeScreen = () => {
         color: `${palette.white}`,
       }}
       customStyles={styles.customBtnStyles}
+      loading={loading}
+      disabled={loading}
     />
   );
 
@@ -61,7 +72,7 @@ const HomeScreen = () => {
           21 Dec 2020
         </p>
       </div>
-      <Todo />
+      {loading ? <Loader /> : <Todo />}
     </LayoutWrapper>
   );
 };
