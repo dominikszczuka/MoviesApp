@@ -2,16 +2,96 @@ import { Message } from "constants/types/Message";
 import { TodoType } from "constants/types/TodoTypes";
 import * as todosTypes from "./todoTypes";
 
-export const addTodos = (todo: TodoType): todosTypes.AddTodos => ({
-  type: todosTypes.ADD_TODOS,
+// --------------- ADD TODO -----------
+
+export const addTodo = (
+  todo: TodoType,
+  callback: (message: string, typeMessage: Message) => void
+): todosTypes.AddTodo => ({
+  type: todosTypes.ADD_TODO,
+  payload: {
+    todo: todo,
+    callback: callback,
+  },
+});
+
+export const addTodoPending = (): todosTypes.AddTodoPending => ({
+  type: todosTypes.ADD_TODOS_PENDING,
+});
+
+export const addTodoResolved = (
+  todos: TodoType[]
+): todosTypes.AddTodoResolved => ({
+  type: todosTypes.ADD_TODOS_RESOLVED,
+  payload: todos,
+});
+
+export const addTodoRejected = (error: string): todosTypes.AddTodoRejected => ({
+  type: todosTypes.ADD_TODOS_REJECTED,
+  payload: error,
+});
+// ------------------------------------
+// ------------- UPDATE TODO-----------
+export const deleteTodo = (
+  todosId: number[],
+  callback: (message: string, typeMessage: Message) => void
+): todosTypes.DeleteTodo => ({
+  type: todosTypes.DELETE_TODO,
+  payload: {
+    todosId: todosId,
+    callback: callback,
+  },
+});
+
+export const deleteTodoPending = (): todosTypes.DeleteTodoPending => ({
+  type: todosTypes.DELETE_TODO_PENDING,
+});
+
+export const deleteTodoResolved = (
+  todos: TodoType[]
+): todosTypes.DeleteTodoResolved => ({
+  type: todosTypes.DELETE_TODO_RESOLVED,
+  payload: todos,
+});
+
+export const deleteTodoRejected = (
+  error: string
+): todosTypes.DeleteTodoRejected => ({
+  type: todosTypes.DELETE_TODO_REJECTED,
+  payload: error,
+});
+// ------------------------------------
+
+// ------------- UPDATE TODO-----------
+export const updateTodo = (
+  todo: TodoType,
+  callback: (message: string, typeMessage: Message) => void
+): todosTypes.UpdateTodo => ({
+  type: todosTypes.UPDATE_TODO,
+  payload: {
+    todo: todo,
+    callback: callback,
+  },
+});
+
+export const updateTodoPending = (): todosTypes.UpdateTodoPending => ({
+  type: todosTypes.UPDATE_TODO_PENDING,
+});
+
+export const UpdateTodoResolved = (
+  todo: TodoType[]
+): todosTypes.UpdateTodoResolved => ({
+  type: todosTypes.UPDATE_TODO_RESOLVED,
   payload: todo,
 });
 
-export const deleteTodos = (todo: TodoType): todosTypes.DeleteTodos => ({
-  type: todosTypes.DELETE_TODOS,
-  payload: todo,
+export const updateTodoRejected = (errorMessage: string) => ({
+  type: todosTypes.UPDATE_TODO_REJECTED,
+  payload: errorMessage,
 });
+// ------------------------------------
 
+// ------------- FETCH TODOS-----------
 export const fetchTodos = (
   callback: (message: string, typeMessage: Message) => void
 ): todosTypes.FetchTodos => ({

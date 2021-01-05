@@ -8,10 +8,6 @@ interface State {
 }
 
 const initialState: State = {
-  // user:{
-  //   name: "",
-  //   age: 0
-  // },
   todos: [],
   loading: false,
   error: null,
@@ -22,20 +18,52 @@ export default function todosReducer(
   action: todosTypes.TodosActionType
 ) {
   switch (action.type) {
-    case todosTypes.ADD_TODOS:
+    // --------------- ADD TODOS -----------
+    case todosTypes.ADD_TODOS_PENDING:
       return {
         ...state,
-        // user: {
-        //   ...state.user,
-        //   age:action.payload.age
-        // }
-        todos: [...state.todos, action.payload],
       };
-    case todosTypes.DELETE_TODOS:
+    case todosTypes.ADD_TODOS_RESOLVED:
       return {
         ...state,
-        todos: [...state.todos.filter((todo) => todo.id !== action.payload.id)],
+        todos: [...action.payload],
       };
+    case todosTypes.ADD_TODOS_REJECTED:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    // -------------------------------------
+
+    // ------------- DELETE TODOS ----------
+    case todosTypes.DELETE_TODO_PENDING:
+      return {
+        ...state,
+      };
+    case todosTypes.DELETE_TODO_RESOLVED:
+      return {
+        ...state,
+        todos: [...action.payload],
+      };
+
+    // -------------------------------------
+
+    // ------------- UPDATE TODOS-----------
+    case todosTypes.UPDATE_TODO_PENDING:
+      return {
+        ...state,
+      };
+    case todosTypes.UPDATE_TODO_RESOLVED:
+      return {
+        ...state,
+        todos: [...action.payload],
+      };
+    case todosTypes.UPDATE_TODO_REJECTED:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    // ------------- FETCH  TODOS-----------
     case todosTypes.FETCH_TODOS_PENDING:
       return {
         ...state,

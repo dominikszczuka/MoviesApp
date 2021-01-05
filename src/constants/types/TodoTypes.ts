@@ -3,11 +3,12 @@ import { IconTypes } from "components/Icon/Icon";
 export interface BasicTodo {
   id: number;
   title: string;
-  priority: Priority;
-  category: Category;
+  priority?: Priority;
+  category?: Category;
 }
 
 export interface TodoType extends BasicTodo {
+  id: number;
   userId: number;
   completed: boolean;
 }
