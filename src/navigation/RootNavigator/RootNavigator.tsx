@@ -8,12 +8,12 @@ import { fetchTodos } from "store/todo/todoActions";
 import { useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { useTranslation } from "react-i18next";
-export const errorLink = () => <div>Sorry, this page does not exists</div>;
 
 const RootNavigator = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const alert = useAlert();
+  const errorLink = () => <div>{t("page-dont-exists")}</div>;
 
   const showAlert = (message: string, typeMessage: Message) => {
     switch (typeMessage) {

@@ -26,12 +26,14 @@ export const addTodoResolved = (
   payload: todos,
 });
 
-export const addTodoRejected = (error: string): todosTypes.AddTodoRejected => ({
+export const addTodoRejected = (
+  errorMessage: string
+): todosTypes.AddTodoRejected => ({
   type: todosTypes.ADD_TODOS_REJECTED,
-  payload: error,
+  payload: errorMessage,
 });
 // ------------------------------------
-// ------------- UPDATE TODO-----------
+// ------------- DELETE TODO-----------
 export const deleteTodo = (
   todosId: number[],
   callback: (message: string, typeMessage: Message) => void
@@ -55,10 +57,10 @@ export const deleteTodoResolved = (
 });
 
 export const deleteTodoRejected = (
-  error: string
+  errorMessage: string
 ): todosTypes.DeleteTodoRejected => ({
   type: todosTypes.DELETE_TODO_REJECTED,
-  payload: error,
+  payload: errorMessage,
 });
 // ------------------------------------
 

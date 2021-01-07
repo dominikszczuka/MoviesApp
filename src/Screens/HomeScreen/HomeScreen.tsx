@@ -21,7 +21,7 @@ const HomeScreen = () => {
 
   const btnAddTask = (
     <CustomButton
-      label={t("add-task")}
+      label={t("new-task")}
       onClick={() => setShowForm(!showForm)}
       icon={{
         iconName: Icons.calendarPlus,

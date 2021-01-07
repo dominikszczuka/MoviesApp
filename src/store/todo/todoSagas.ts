@@ -33,7 +33,7 @@ function* updateTodoTask(action: todosTypes.UpdateTodo) {
   const { payload } = action;
   try {
     yield put(todosActions.updateTodoPending());
-
+    delay(2000);
     const todos: TodoType[] = yield select((state) => state.todosReducer.todos);
 
     const index = todos.findIndex((todo) => todo.id === payload.todo.id);
@@ -50,6 +50,7 @@ function* updateTodoTask(action: todosTypes.UpdateTodo) {
 function* addTodoTask(action: todosTypes.AddTodo) {
   try {
     yield put(todosActions.addTodoPending());
+    delay(2000);
     const todos: TodoType[] = yield select((state) => state.todosReducer.todos);
     const newTodos = [...todos];
     newTodos.push(action.payload.todo);
@@ -62,6 +63,7 @@ function* addTodoTask(action: todosTypes.AddTodo) {
 function* deleteTodoTask(action: todosTypes.DeleteTodo) {
   try {
     yield put(todosActions.deleteTodoPending());
+    delay(2000);
     const todos: TodoType[] = yield select((state) => state.todosReducer.todos);
     const todosCopy = [...todos];
     let newTasks: TodoType[] = [];

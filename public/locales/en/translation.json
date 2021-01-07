@@ -10,7 +10,7 @@
     "date-start": "Date start task"
   },
   "add-task": "Add task",
-  "add-new-task": "Add new task",
+  "new-task": "New task",
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
   "history-tasks": "History tasks",
@@ -20,5 +20,6 @@
   },
   "alert": {
     "fetch-data": "Data was downloaded"
-  }
+  },
+  "page-dont-exists": "Sorry, this page does not exists"
 }
