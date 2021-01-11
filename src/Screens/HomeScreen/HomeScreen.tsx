@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     width: "100%",
     margin: "10px 0px",
-    padding: "5px",
+    padding: "5px 15px",
     backgroundColor: `${palette.darkBlueTwo}`,
     borderRadius: "5px",
     boxShadow: `${shadow}`,

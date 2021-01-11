@@ -10,13 +10,21 @@
     "date-start": "Date start task"
   },
   "add-task": "Add task",
+  "add-new-task": "Add new task",
   "new-task": "New task",
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
   "history-tasks": "History tasks",
   "form": {
-    "write-title": "Write title your task....",
-    "write-description": "Write description about your task..."
+    "title": "title",
+    "description": "description",
+    "write": "Write here..."
+  },
+  "choose-priority": "Choose priority",
+  "priority": {
+    "low": "low",
+    "medium": "medium",
+    "high": "high"
   },
   "alert": {
     "fetch-data": "Data was downloaded"
