@@ -6,15 +6,14 @@
   },
   "task": {
     "title": "Title",
-    "description": "Description",
-    "date-start": "Date start task"
+    "description": "Description"
   },
   "add-task": "Add task",
   "add-new-task": "Add new task",
   "new-task": "New task",
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
-  "history-tasks": "History tasks",
+  "history-tasks": "Task`s history",
   "form": {
     "title": "title",
     "description": "description",
@@ -29,5 +28,5 @@
   "alert": {
     "fetch-data": "Data was downloaded"
   },
-  "page-dont-exists": "Sorry, this page does not exists"
+  "page-doesnt-exists": "Sorry, this page does not exist"
 }

@@ -13,7 +13,7 @@ const RootNavigator = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const alert = useAlert();
-  const errorLink = () => <div>{t("page-dont-exists")}</div>;
+  const errorLink = () => <div>{t("page-doesnt-exists")}</div>;
 
   const showAlert = (message: string, typeMessage: Message) => {
     switch (typeMessage) {
