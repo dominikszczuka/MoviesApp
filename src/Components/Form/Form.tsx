@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite";
 import CustomInput from "components/CustomInput/CustomInput";
-import { palette, typography } from "styles/index";
+import { lightShadow, palette, typography } from "styles/index";
 import { useTranslation } from "react-i18next";
 
 const Form = () => {
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: "5px 0px",
     backgroundColor: `${palette.darkBlueTwo}`,
+    boxShadow: `${lightShadow}`,
   },
   form: {
     display: "flex",

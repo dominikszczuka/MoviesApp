@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
-import { useSelector } from "react-redux";
 import { StyleSheet, css } from "aphrodite";
+import TodoItem from "components/Todo/TodoItem/TodoItem";
+import { TodoType } from "constants/types/TodoTypes";
 
-import TodoItem from "components/TodoItem/TodoItem";
-import { AppState } from "store/store";
+interface TodoListProps {
+  todos: TodoType[];
+}
 
-const TodoList = () => {
-  const { todos } = useSelector((state: AppState) => state.todosReducer);
-
+const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   const renderToDoList = (): ReactNode =>
     todos.map((todo, index) => <TodoItem key={index} todo={todo} />);
 
@@ -17,6 +17,7 @@ const TodoList = () => {
 const style = StyleSheet.create({
   wrapper: {
     display: "flex",
+    flexDirection: "column",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",

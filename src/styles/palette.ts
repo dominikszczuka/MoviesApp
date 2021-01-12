@@ -7,7 +7,8 @@ export const palette = {
   red: "#DA1B2B",
   lightRed: "#E63946",
   darkRed: "#5B0B12",
-  gray: "#F0F9F9",
+  gray: "#d0d0d0",
+  lightGray: "#e8e8e8",
   darkGray: "#3A405A",
   black: "#000000",
   success: "#5cb85c",
@@ -17,3 +18,4 @@ export const palette = {
 };
 
 export const shadow = `2px 2px 2px ${palette.darkGray}`;
+export const lightShadow = `2px 2px 2px ${palette.gray}`;
