@@ -5,6 +5,7 @@ import { palette, typography } from "styles/index";
 import Loader from "components/Loader/Loader";
 
 export interface CustomButtonProps {
+  type: "button" | "submit";
   onClick: () => void;
   label: string;
   customStyles?: StyleDeclaration;
@@ -15,6 +16,7 @@ export interface CustomButtonProps {
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
+  type,
   onClick,
   label,
   disabled,
@@ -33,6 +35,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <div>
       <button
+        type={type}
         onClick={onClick}
         disabled={disabled}
         className={css(

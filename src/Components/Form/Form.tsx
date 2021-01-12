@@ -1,92 +1,114 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
-import React, { useEffect } from "react";
-import { StyleSheet, css } from "aphrodite";
+import React from "react";
+import CustomButton from "components/CustomButton/CustomButton";
 import CustomInput from "components/CustomInput/CustomInput";
+import CustomRadioButton from "components/CustomRadioButton/CustomRadioButton";
+import CustomSelect from "components/CustomSelect/CustomSelect";
+
+import { StyleSheet, css } from "aphrodite";
 import { palette, typography } from "styles/index";
 import { useTranslation } from "react-i18next";
-import Select from "react-select";
-import CustomButton from "components/CustomButton/CustomButton";
-import Icon from "components/Icon/Icon";
 import { Icons } from "constants/enums/Icons";
+import { Field, FormikProvider, useFormik } from "formik";
+import * as Yup from "yup";
+
+const categoryTitleOptions = [
+  { value: "lifestyle", label: "Lifestyle" },
+  { value: "work", label: "Work" },
+  { value: "house", label: "House" },
+  { value: "car", label: "Car" },
+  { value: "children", label: "Children" },
+  { value: "science", label: "Science" },
+];
+
+const validationSchema = () =>
+  Yup.object().shape({
+    taskTitle: Yup.string().required(),
+  });
+
 const Form = () => {
   const { t } = useTranslation();
-  const categoryTitleOptions = [
-    { value: "lifestyle", label: "Lifestyle" },
-    { value: "work", label: "Work" },
-    { value: "house", label: "House" },
-    { value: "car", label: "Car" },
-    { value: "children", label: "Children" },
-    { value: "science", label: "Science" },
-  ];
+
+  const formik = useFormik({
+    initialValues: {
+      taskTitle: "",
+      taskDescription: "",
+      taskCategory: "",
+      taskPriority: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values));
+      console.log(values);
+    },
+  });
 
   return (
     <div className={css(styles.formWrapper)}>
       <h2 className={css(typography.logoFont, styles.formTitle)}>
         {t("add-new-task")}
       </h2>
-      <form className={css(styles.form)}>
-        <label className={css(typography.bigFont, styles.formInput)}>
-          {t("form.title")}
+      <FormikProvider value={formik}>
+        <form onSubmit={formik.handleSubmit} className={css(styles.form)}>
           <CustomInput
-            placeholder={t("form.write")}
+            name="taskTitle"
             type="text"
-            disabled={false}
+            placeholder={t("form.write")}
+            label="form.title"
+            onChange={formik.handleChange}
+            value={formik.values.taskTitle}
           />
-        </label>
-        <label className={css(typography.bigFont, styles.formInput)}>
-          {t("form.description")}
           <CustomInput
-            placeholder={t("form.write")}
+            name="taskDescription"
             type="text"
-            disabled={false}
+            placeholder={t("form.write")}
+            label="form.description"
+            onChange={formik.handleChange}
+            value={formik.values.taskDescription}
           />
-        </label>
-        <p className={css(typography.bigFont, styles.formRadioTitle)}>
-          {t("choose-priority")}:
-        </p>
-        <div className={css(styles.formRadioWrapper)}>
-          <label className={css(typography.bigFont, styles.formRadioLabel)}>
-            {t("priority.low")}
-            <input
-              className={css(styles.formRadio)}
-              name="isGoing"
-              type="radio"
+          <p className={css(typography.bigFont, styles.radioHeader)}>
+            {t("choose-priority")}
+          </p>
+          <div className={css(styles.radioGroup)}>
+            <Field
+              component={CustomRadioButton}
+              name="taskPriority"
+              id="Low"
+              label={t("priority.low")}
             />
-          </label>
-          <label className={css(typography.bigFont, styles.formRadioLabel)}>
-            {t("priority.medium")}
-            <input
-              className={css(styles.formRadio)}
-              name="isGoing"
-              type="radio"
+            <Field
+              component={CustomRadioButton}
+              name="taskPriority"
+              id="Medium"
+              label={t("priority.medium")}
             />
-          </label>
-          <label className={css(typography.bigFont, styles.formRadioLabel)}>
-            {t("priority.high")}
-            <input
-              className={css(styles.formRadio)}
-              name="isGoing"
-              type="radio"
+            <Field
+              component={CustomRadioButton}
+              name="taskPriority"
+              id="High"
+              label={t("priority.high")}
             />
-          </label>
-        </div>
-        <label className={css(typography.bigFont, styles.formSelectWrapper)}>
-          <p className={css(styles.formSelectLabel)}>Choose category:</p>
-          <Select
-            className={css(styles.formSelect)}
+          </div>
+          <CustomSelect
+            label="Choose category"
             options={categoryTitleOptions}
+            value={formik.values.taskCategory}
+            onChange={(value) =>
+              formik.setFieldValue("taskCategory", value.value)
+            }
           />
-        </label>
-        <CustomButton
-          label="Add task"
-          onClick={() => {}}
-          customStyles={styles.btnAddTask}
-          icon={{
-            iconName: Icons.faPlusSquare,
-          }}
-        />
-      </form>
+          <CustomButton
+            type="submit"
+            label="Add task"
+            onClick={() => {}}
+            customStyles={styles.btnAddTask}
+            icon={{
+              iconName: Icons.faPlusSquare,
+            }}
+          />
+        </form>
+      </FormikProvider>
     </div>
   );
 };
@@ -110,46 +132,14 @@ const styles = StyleSheet.create({
     ...typography.logoFont,
     color: `${palette.white}`,
   },
-  formInput: {
+  radioGroup: {
     display: "flex",
-    flexDirection: "column",
-    textTransform: "uppercase",
-    color: palette.white,
+    margin: "5px 0px 15px",
   },
-  formRadioTitle: {
-    color: palette.white,
-    textTransform: "uppercase",
-  },
-  formRadioWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: palette.white,
-    textTransform: "uppercase",
-  },
-  formRadioLabel: {
-    margin: "5px 10px",
-    display: "flex",
-    alignItems: "center",
-    padding: "0px 5px",
-  },
-  formRadio: {
-    margin: "0px 5px",
-  },
-  formSelectWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "350px",
-    margin: "5px 0px",
-  },
-  formSelectLabel: {
+  radioHeader: {
+    marginTop: "15px",
     color: `${palette.white}`,
     textTransform: "uppercase",
-    marginRight: "5px",
-  },
-  formSelect: {
-    width: "125px",
   },
   btnAddTask: {
     marginTop: "15px",

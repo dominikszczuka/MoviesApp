@@ -21,6 +21,7 @@ const HomeScreen = () => {
 
   const btnAddTask = (
     <CustomButton
+      type="button"
       label={t("new-task")}
       onClick={() => setShowForm(!showForm)}
       icon={{
