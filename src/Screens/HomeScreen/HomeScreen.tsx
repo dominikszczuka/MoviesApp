@@ -14,7 +14,7 @@ import { useAlert } from "react-alert";
 import { Message } from "constants/types/Message";
 import { AppState } from "store/store";
 import Loader from "components/Loader/Loader";
-
+import SearchFilterPanel from "components/SearchFilterPanel/SearchFilterPanel";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
@@ -26,7 +26,6 @@ const HomeScreen = () => {
   const alert = useAlert();
 
   const { loading } = useSelector((state: AppState) => state.todosReducer);
-
 
   const btnAddTask = (
     <CustomButton
@@ -65,13 +64,17 @@ const HomeScreen = () => {
       <HeaderPanel actionButton={btnAddTask} />
       {showForm && <Form />}
       <div className={css(styles.tasksInformation)}>
-        <h1 className={css(typography.logoFont, styles.tasksHeader)}>
-          {t("active-tasks")}
-        </h1>
-        <p className={css(typography.normalFont, styles.tasksDate)}>
-          21 Dec 2020
-        </p>
+        <div className={css(styles.tasksWrapper)}>
+          <h1 className={css(typography.logoFont, styles.tasksHeader)}>
+            {t("active-tasks")}
+          </h1>
+          <p className={css(typography.normalFont, styles.tasksDate)}>
+            21 Dec 2020
+          </p>
+        </div>
+        <SearchFilterPanel />
       </div>
+
       {loading ? <Loader /> : <Todo />}
     </LayoutWrapper>
   );
@@ -86,13 +89,17 @@ const styles = StyleSheet.create({
   },
   tasksInformation: {
     display: "flex",
-    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
     width: "100%",
     margin: "10px 0px",
     padding: "5px",
     backgroundColor: `${palette.darkBlueTwo}`,
     borderRadius: "5px",
     boxShadow: `${shadow}`,
+  },
+  tasksWrapper: {
+    padding: "0px 10px",
   },
   tasksHeader: {
     color: `${palette.white}`,

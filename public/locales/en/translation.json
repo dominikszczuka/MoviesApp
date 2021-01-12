@@ -20,5 +20,7 @@
   },
   "alert": {
     "fetch-data": "Data was downloaded"
-  }
+  },
+  "search-filter-task": "Search&Filter Task",
+  "search-task-by-title": "Search task by title..."
 }
