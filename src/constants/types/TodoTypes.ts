@@ -3,6 +3,7 @@ import { IconTypes } from "components/Icon/Icon";
 export interface BasicTodo {
   id: number;
   title: string;
+  description?: string;
   priority?: Priority;
   category?: Category;
 }
@@ -20,17 +21,6 @@ export interface FetchTodoResponse {
   completed: boolean;
 }
 
-export interface Priority {
-  priorityTitle: "High" | "Medium" | "Low";
-}
+export type Priority = "High" | "Medium" | "Low";
 
-export interface Category {
-  categoryTitle:
-    | "lifestyle"
-    | "work"
-    | "house"
-    | "car"
-    | "children"
-    | "science";
-  categoryIcon: IconTypes;
-}
+export type Category = "lifestyle" | "work" | "house" | "car" | "children";

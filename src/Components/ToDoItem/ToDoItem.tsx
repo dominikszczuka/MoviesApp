@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-boolean-cast */
 import React from "react";
 import { TodoType } from "constants/types/TodoTypes";
 import { css, StyleSheet } from "aphrodite";
@@ -25,9 +26,11 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }: TodoItemProps) => {
         {t("task.description")}
       </p>
       <p className={css(styles.taskDescriptionText)}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-        aliquam accusamus enim quae iure blanditiis labore quisquam inventore
-        reiciendis voluptate. Numquam vero consequuntur saepe nihil.
+        {todo.description
+          ? todo.description
+          : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciuntaliquam accusamus enim."}
+        {todo.category}
+        {todo.priority}
       </p>
     </div>
   );

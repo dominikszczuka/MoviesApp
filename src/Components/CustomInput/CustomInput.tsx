@@ -25,6 +25,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   onChange,
   disabled = false,
   customStyle,
+  value,
 }: CustomInputProps) => {
   const { t } = useTranslation();
 
@@ -36,6 +37,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        value={value}
         disabled={disabled}
         className={css(
           typography.normalFont,

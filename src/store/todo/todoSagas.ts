@@ -2,15 +2,7 @@ import { getTodosApi } from "api/todoApi";
 import { AlertMessage } from "constants/enums/AlertMessage";
 
 import { TodoType } from "constants/types/TodoTypes";
-import {
-  call,
-  fork,
-  put,
-  takeLatest,
-  delay,
-  select,
-  take,
-} from "redux-saga/effects";
+import { call, fork, put, takeLatest, delay, select } from "redux-saga/effects";
 
 import * as todosActions from "./todoActions";
 import * as todosTypes from "./todoTypes";
@@ -22,10 +14,10 @@ function* getTodoSagas(action: todosTypes.FetchTodos) {
     const todos: TodoType[] = yield call(getTodosApi);
     if (!todos[0].id) return yield put(todosActions.fetchTodosRejected("Brak"));
     yield put(todosActions.fetchTodosResolved(todos));
-    callback(AlertMessage.fetch_data, "SUCCESS");
+    callback(AlertMessage.fetch_data, "success");
   } catch (error) {
     yield put(todosActions.fetchTodosRejected(error));
-    callback(error, "ERROR");
+    callback(error, "error");
   }
 }
 
@@ -43,17 +35,19 @@ function* updateTodoTask(action: todosTypes.UpdateTodo) {
     yield put(todosActions.fetchTodosResolved(todos));
   } catch (error) {
     yield put(todosActions.updateTodoRejected(error));
-    payload.callback(error, "ERROR");
+    payload.callback(error, "error");
   }
 }
 
 function* addTodoTask(action: todosTypes.AddTodo) {
+  const { callback } = action.payload;
   try {
     yield put(todosActions.addTodoPending());
     delay(2000);
     const todos: TodoType[] = yield select((state) => state.todosReducer.todos);
     const newTodos = [...todos];
     newTodos.push(action.payload.todo);
+    callback(AlertMessage.add_task, "success");
     yield put(todosActions.addTodoResolved(newTodos));
   } catch (error) {
     yield put(todosActions.addTodoRejected(error));

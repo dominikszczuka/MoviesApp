@@ -26,7 +26,8 @@
     "high": "high"
   },
   "alert": {
-    "fetch-data": "Data was downloaded"
+    "fetch-data": "Data was downloaded",
+    "add-task": "Task was added"
   },
   "page-doesnt-exists": "Sorry, this page does not exist"
 }

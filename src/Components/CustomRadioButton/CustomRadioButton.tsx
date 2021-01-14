@@ -3,13 +3,7 @@ import React from "react";
 import { css, StyleSheet } from "aphrodite";
 import { palette, typography } from "styles";
 
-const CustomRadioButton = ({
-  field: { name, value, onChange, onBlur },
-  id,
-  label,
-  className,
-  ...props
-}) => {
+const CustomRadioButton = ({ name, value, onChange, onBlur, id, label }) => {
   return (
     <label className={css(typography.bigFont, styles.radioLabel)}>
       {label}

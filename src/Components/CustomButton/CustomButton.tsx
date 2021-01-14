@@ -6,7 +6,7 @@ import Loader from "components/Loader/Loader";
 
 export interface CustomButtonProps {
   type: "button" | "submit";
-  onClick: () => void;
+  onClick?: () => void;
   label: string;
   customStyles?: StyleDeclaration;
   disabled?: boolean;
@@ -70,6 +70,9 @@ const styles = StyleSheet.create({
   disabled: {
     backgroundColor: `${palette.black}`,
     border: `${palette.black}`,
+    ":hover": {
+      cursor: "no-drop",
+    },
   },
 });
 

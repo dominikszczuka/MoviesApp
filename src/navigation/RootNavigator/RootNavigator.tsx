@@ -17,13 +17,13 @@ const RootNavigator = () => {
 
   const showAlert = (message: string, typeMessage: Message) => {
     switch (typeMessage) {
-      case "SUCCESS":
+      case "success":
         alert.success(t(message));
         break;
-      case "SHOW":
+      case "show":
         alert.show(message);
         break;
-      case "ERROR":
+      case "error":
         alert.error(message);
         break;
     }

@@ -33,7 +33,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       </label>
       <Select
         options={options}
-        value={defaultValue(options, value)}
+        value={defaultValue(options, value) || value}
         onChange={(value) => onChange(value)}
         className={css(typography.bigFont, styles.selectInput)}
       />
