@@ -14,14 +14,18 @@ import { useAlert } from "react-alert";
 import { Message } from "constants/types/Message";
 import { AppState } from "store/store";
 import Loader from "components/Loader/Loader";
+import { DateTime } from "luxon";
+
+
 const HomeScreen = () => {
   const { t } = useTranslation();
-
   const dispatch = useDispatch();
-
   const [showForm, setShowForm] = useState<boolean>(false);
-
   const alert = useAlert();
+
+  const { loading } = useSelector((state: AppState) => state.todosReducer);
+  let date = DateTime.local().toLocaleString(DateTime.DATE_FULL);
+
 
   const { loading, todos } = useSelector(
     (state: AppState) => state.todosReducer
@@ -69,9 +73,7 @@ const HomeScreen = () => {
         <h1 className={css(typography.logoFont, styles.tasksHeader)}>
           {t("active-tasks")}
         </h1>
-        <p className={css(typography.normalFont, styles.tasksDate)}>
-          21 Dec 2020
-        </p>
+        <p className={css(typography.normalFont, styles.tasksDate)}>{date}</p>
       </div>
       {loading ? <Loader /> : <TodoList todos={activeTodos} />}
     </LayoutWrapper>
