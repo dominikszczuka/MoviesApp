@@ -2,40 +2,33 @@ import React, { useEffect, useState } from "react";
 import TodoList from "components/Todo/TodoList/TodoList";
 import LayoutWrapper from "components/LayoutWrapper/LayoutWrapper";
 import HeaderPanel from "components/HeaderPanel/HeaderPanel";
-import { useTranslation } from "react-i18next";
-import { fetchTodos } from "store/todo/todoActions";
-import { useDispatch, useSelector } from "react-redux";
-import Form from "components/Form/Form";
 import CustomButton from "components/CustomButton/CustomButton";
+import Form from "components/Form/Form";
+import Loader from "components/Loader/Loader";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { Icons } from "constants/enums/Icons";
 import { StyleSheet, css } from "aphrodite";
 import { palette, typography, shadow, lightShadow } from "styles/index";
-import { useAlert } from "react-alert";
-import { Message } from "constants/types/Message";
 import { AppState } from "store/store";
-import Loader from "components/Loader/Loader";
 import { DateTime } from "luxon";
-
 
 const HomeScreen = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+
   const [showForm, setShowForm] = useState<boolean>(false);
-  const alert = useAlert();
 
   const { loading } = useSelector((state: AppState) => state.todosReducer);
-  let date = DateTime.local().toLocaleString(DateTime.DATE_FULL);
+  const date = DateTime.local().toLocaleString(DateTime.DATE_FULL);
 
-
-  const { loading, todos } = useSelector(
-    (state: AppState) => state.todosReducer
-  );
+  const { todos } = useSelector((state: AppState) => state.todosReducer);
 
   const activeTodos = todos.filter((todo) => !todo.completed);
 
   const btnAddTask = (
     <CustomButton
-      label={t("add-task")}
+      type="button"
+      label={t("new-task")}
       onClick={() => setShowForm(!showForm)}
       icon={{
         iconName: Icons.calendarPlus,
@@ -46,24 +39,6 @@ const HomeScreen = () => {
       disabled={loading}
     />
   );
-
-  const showAlert = (message: string, typeMessage: Message) => {
-    switch (typeMessage) {
-      case "SUCCESS":
-        alert.success(t(message));
-        break;
-      case "SHOW":
-        alert.show(message);
-        break;
-      case "ERROR":
-        alert.error(message);
-        break;
-    }
-  };
-
-  useEffect(() => {
-    dispatch(fetchTodos(showAlert));
-  }, [dispatch]);
 
   return (
     <LayoutWrapper>
@@ -92,8 +67,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     width: "100%",
     margin: "10px 0px",
+
     borderRadius: "2px",
     padding: "5px",
+
     backgroundColor: `${palette.darkBlueTwo}`,
     boxShadow: `${lightShadow}`,
   },

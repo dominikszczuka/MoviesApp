@@ -39,11 +39,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
         {t("task.description")}:
       </p>
       <p className={css(typography.normalFont, styles.taskDescriptionText)}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-        aliquam accusamus enim quae iure blanditiis labore quisquam inventore
-        reiciendis voluptate. Numquam vero consequuntur saepe nihil.
+        {todo.description
+          ? todo.description
+          : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciun aliquam accusamus enim quae iure blanditiis"}
       </p>
       <CustomButton
+        type="button"
         label={label}
         onClick={toggleCompleted}
         customStyles={styles.btnDone}

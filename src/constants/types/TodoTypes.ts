@@ -3,8 +3,9 @@ import { IconTypes } from "components/Icon/Icon";
 export interface BasicTodo {
   id: number;
   title: string;
-  priority: Priority;
-  category: Category;
+  description: string;
+  priority?: Priority;
+  category?: Category;
 }
 
 export interface TodoType extends BasicTodo {
@@ -13,23 +14,12 @@ export interface TodoType extends BasicTodo {
 }
 
 export interface FetchTodoResponse {
-  userId: number;
   id: number;
+  userId: number;
   title: string;
   completed: boolean;
 }
 
-export interface Priority {
-  priorityTitle: "High" | "Medium" | "Low";
-}
+export type Priority = "High" | "Medium" | "Low";
 
-export interface Category {
-  categoryTitle:
-    | "lifestyle"
-    | "work"
-    | "house"
-    | "car"
-    | "children"
-    | "science";
-  categoryIcon: IconTypes;
-}
+export type Category = "lifestyle" | "work" | "house" | "car" | "children";

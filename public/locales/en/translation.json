@@ -6,22 +6,39 @@
   },
   "task": {
     "title": "Title",
-    "description": "Description",
-    "date-start": "Date start task"
+    "description": "Description"
   },
   "add-task": "Add task",
   "add-new-task": "Add new task",
+  "new-task": "New task",
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
-  "history-tasks": "History tasks",
+  "history-tasks": "Task`s history",
   "form": {
-    "write-title": "Write title your task....",
-    "write-description": "Write description about your task..."
+    "title": "title",
+    "description": "description",
+    "write": "Write here...",
+    "choose-category": "Choose category"
+  },
+  "choose-priority": "Choose priority",
+  "priority": {
+    "low": "low",
+    "medium": "medium",
+    "high": "high"
   },
   "alert": {
-    "fetch-data": "Data was downloaded"
+    "fetch-data": "The data has been downloaded",
+    "add-task": "The task has been added"
   },
+  "page-doesnt-exists": "Sorry, this page does not exist",
+  "fetch-data": "Data was downloaded",
   "task-done": "Task done",
   "done": "Done",
-  "todo": "Todo"
+  "todo": "Todo",
+  "validation": {
+    "title-is-required": "Title is required",
+    "description-is-required": "Description is required",
+    "category-is-required": "Category is required",
+    "priority-is-required": "Priority is required"
+  }
 }

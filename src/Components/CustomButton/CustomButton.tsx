@@ -1,11 +1,12 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 import Icon, { IconTypes } from "components/Icon/Icon";
-import { palette, typography } from "styles/index";
+import { typography } from "styles/index";
 import Loader from "components/Loader/Loader";
 
 export interface CustomButtonProps {
-  onClick: () => void;
+  type: "button" | "submit";
+  onClick?: () => void;
   label: string;
   customStyles?: StyleDeclaration;
   disabled?: boolean;
@@ -15,6 +16,7 @@ export interface CustomButtonProps {
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
+  type,
   onClick,
   label,
   disabled,
@@ -33,6 +35,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <div>
       <button
+        type={type}
         onClick={onClick}
         disabled={disabled}
         className={css(
@@ -65,6 +68,9 @@ const styles = StyleSheet.create({
     },
   },
   disabled: {
+    ":hover": {
+      cursor: "no-drop",
+    },
     opacity: 0.4,
   },
 });

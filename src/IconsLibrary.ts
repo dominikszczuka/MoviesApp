@@ -3,6 +3,7 @@ import {
   faCalendarPlus,
   faGraduationCap,
   faCheckCircle,
+  faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCalendarPlus, faGraduationCap, faCheckCircle);
+library.add(faCalendarPlus, faGraduationCap, faCheckCircle, faPlusSquare);
