@@ -19,7 +19,7 @@ const HomeScreen = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
 
   const { loading } = useSelector((state: AppState) => state.todosReducer);
-  let date = DateTime.local().toLocaleString(DateTime.DATE_FULL);
+  const date = DateTime.local().toLocaleString(DateTime.DATE_FULL);
 
   const { todos } = useSelector((state: AppState) => state.todosReducer);
 
