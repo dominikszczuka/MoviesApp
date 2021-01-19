@@ -20,5 +20,8 @@
   },
   "alert": {
     "fetch-data": "Data was downloaded"
-  }
+  },
+  "task-done": "Task done",
+  "done": "Done",
+  "todo": "Todo"
 }

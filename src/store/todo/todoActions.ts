@@ -12,6 +12,16 @@ export const deleteTodos = (todo: TodoType): todosTypes.DeleteTodos => ({
   payload: todo,
 });
 
+export const setTodo = (todo: TodoType): todosTypes.SetTodo => ({
+  type: todosTypes.SET_TODO,
+  payload: todo,
+});
+
+export const setDone = (todo: TodoType): todosTypes.SetDone => ({
+  type: todosTypes.SET_DONE,
+  payload: todo,
+});
+
 export const fetchTodos = (
   callback: (message: string, typeMessage: Message) => void
 ): todosTypes.FetchTodos => ({

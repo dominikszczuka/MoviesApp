@@ -4,6 +4,9 @@ import { TodoType } from "constants/types/TodoTypes";
 export const ADD_TODOS = "ADD_TODOS";
 export const DELETE_TODOS = "DELETE_TODOS";
 
+export const SET_DONE = "SET_DONE";
+export const SET_TODO = "SET_TODO";
+
 export const FETCH_TODOS = "FETCH_TODOS";
 export const FETCH_TODOS_PENDING = "FETCH_TODOS_PENDING";
 export const FETCH_TODOS_RESOLVED = "FETCH_TODOS_RESOLVED";
@@ -21,7 +24,20 @@ export interface DeleteTodos {
 }
 // ------------------------------------
 
-// ------------- FETCH TODOS-----------
+// ------------- SET DONE -------------
+export interface SetDone {
+  type: typeof SET_DONE;
+  payload: TodoType;
+}
+// ------------------------------------
+// ------------- SET TODO -------------
+export interface SetTodo {
+  type: typeof SET_TODO;
+  payload: TodoType;
+}
+// ------------------------------------
+
+// ------------ FETCH TODOS -----------
 export interface FetchTodos {
   type: typeof FETCH_TODOS;
   payload: (message: string, typeMessage: Message) => void;
@@ -41,10 +57,13 @@ export interface FetchTodosRejected {
   payload: string;
 }
 // -------------------------------------
+
 export type TodosActionType =
   | AddTodos
   | DeleteTodos
   | FetchTodos
   | FetchTodosPending
   | FetchTodosResolved
-  | FetchTodosRejected;
+  | FetchTodosRejected
+  | SetDone
+  | SetTodo;

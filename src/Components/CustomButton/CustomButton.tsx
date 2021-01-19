@@ -65,8 +65,7 @@ const styles = StyleSheet.create({
     },
   },
   disabled: {
-    backgroundColor: `${palette.black}`,
-    border: `${palette.black}`,
+    opacity: 0.4,
   },
 });
 
