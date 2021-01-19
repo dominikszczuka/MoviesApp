@@ -3,6 +3,7 @@ import * as todosTypes from "./todoTypes";
 
 interface State {
   todos: TodoType[];
+  doneTodos: TodoType[];
   loading: boolean;
   error: string | null;
 }
@@ -13,6 +14,7 @@ const initialState: State = {
   //   age: 0
   // },
   todos: [],
+  doneTodos: [],
   loading: false,
   error: null,
 };
@@ -35,6 +37,18 @@ export default function todosReducer(
       return {
         ...state,
         todos: [...state.todos.filter((todo) => todo.id !== action.payload.id)],
+      };
+    case todosTypes.SET_DONE:
+      return {
+        ...state,
+        doneTodos: [...state.doneTodos, action.payload],
+      };
+    case todosTypes.SET_TODO:
+      return {
+        ...state,
+        doneTodos: [
+          ...state.doneTodos.filter((todo) => todo.id !== action.payload.id),
+        ],
       };
     case todosTypes.FETCH_TODOS_PENDING:
       return {
