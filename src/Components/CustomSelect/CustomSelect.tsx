@@ -4,10 +4,11 @@ import React from "react";
 import Select from "react-select";
 import { css, StyleSheet } from "aphrodite";
 import { palette, typography } from "styles";
+import { SelectItem } from "constants/types/SelectItem";
 
 export interface CustomSelectProps {
   onChange: (value) => {};
-  options: {};
+  options: SelectItem[];
   value: string;
   label: string;
 }
@@ -18,12 +19,15 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   value,
   label,
 }) => {
-  const defaultValue = (options, value) => {
-    return options
-      ? options.find(
-          (option: { value: string; label: string }) => option.value === value
-        )
-      : "";
+  const defaultValue = (
+    options: SelectItem[],
+    value: string
+  ): string | SelectItem | undefined => {
+    if (!value) {
+      return value;
+    }
+    const foundOption = options.find((option) => option.value === value);
+    return foundOption;
   };
 
   return (
@@ -33,7 +37,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       </label>
       <Select
         options={options}
-        value={defaultValue(options, value) || value}
+        value={defaultValue(options, value)}
         onChange={(value) => onChange(value)}
         className={css(typography.bigFont, styles.selectInput)}
       />

@@ -94,6 +94,16 @@ export const updateTodoRejected = (errorMessage: string) => ({
 // ------------------------------------
 
 // ------------- FETCH TODOS-----------
+export const setTodo = (todo: TodoType): todosTypes.SetTodo => ({
+  type: todosTypes.SET_TODO,
+  payload: todo,
+});
+
+export const setDone = (todo: TodoType): todosTypes.SetDone => ({
+  type: todosTypes.SET_DONE,
+  payload: todo,
+});
+
 export const fetchTodos = (
   callback: (message: string, typeMessage: Message) => void
 ): todosTypes.FetchTodos => ({

@@ -4,7 +4,7 @@ import { StyleSheet, css } from "aphrodite";
 
 import Nav from "components/Nav/Nav";
 import Header from "components/Header/Header";
-import { palette } from "styles/palette";
+import { lightShadow, palette } from "styles/palette";
 
 interface HeaderPanelProps {
   actionButton: ReactNode;
@@ -29,9 +29,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "15px",
-    borderBottomLeftRadius: "5px",
-    borderBottomRightRadius: "5px",
+    borderBottomLeftRadius: "2px",
+    borderBottomRightRadius: "2px",
     backgroundColor: `${palette.darkBlueTwo}`,
+    boxShadow: `${lightShadow}`,
   },
   headerPanel: {
     display: "flex",

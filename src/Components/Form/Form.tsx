@@ -7,18 +7,24 @@ import CustomRadioButton from "components/CustomRadioButton/CustomRadioButton";
 import CustomSelect from "components/CustomSelect/CustomSelect";
 
 import { StyleSheet, css } from "aphrodite";
-import { palette, typography } from "styles/index";
+import { lightShadow, palette, typography } from "styles/index";
 import { useTranslation } from "react-i18next";
 import { Icons } from "constants/enums/Icons";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addTodo } from "store/todo/todoActions";
-import { Message } from "constants/types/Message";
 import { useAlert } from "react-alert";
-import { Category, Priority, TodoType } from "constants/types/TodoTypes";
+import * as Yup from "yup";
 
-const categoryTitleOptions = [
+import {
+  Category,
+  Priority,
+  TodoType,
+  SelectItem,
+  Message,
+} from "constants/types/index";
+
+const categoryTitleOptions: SelectItem[] = [
   { value: "lifestyle", label: "Lifestyle" },
   { value: "work", label: "Work" },
   { value: "house", label: "House" },
@@ -27,18 +33,24 @@ const categoryTitleOptions = [
   { value: "science", label: "Science" },
 ];
 
-const validationSchema = () =>
-  Yup.object().shape({
-    taskTitle: Yup.string().required("Title is required"),
-    taskDescription: Yup.string().required("Description is required"),
-    taskCategory: Yup.string().required("Category is required"),
-    taskPriority: Yup.string().required("Priority is required"),
-  });
-
 const Form = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const alert = useAlert();
+
+  const validationSchema = () =>
+    Yup.object().shape({
+      taskTitle: Yup.string().required(`${t("validation.title-is-required")}`),
+      taskDescription: Yup.string().required(
+        `${t("validation.description-is-required")}`
+      ),
+      taskCategory: Yup.string().required(
+        `${t("validation.category-is-required")}`
+      ),
+      taskPriority: Yup.string().required(
+        `${t("validation.priority-is-required")}`
+      ),
+    });
 
   const showAlert = (message: string, typeMessage: Message) => {
     switch (typeMessage) {
@@ -103,7 +115,7 @@ const Form = () => {
           name="taskTitle"
           type="text"
           placeholder={t("form.write")}
-          label="form.title"
+          label={t("form.title")}
           onChange={handleChange}
           value={values.taskTitle}
           customStyle={errors.taskTitle && styles.errorInput}
@@ -112,7 +124,7 @@ const Form = () => {
           name="taskDescription"
           type="text"
           placeholder={t("form.write")}
-          label="form.description"
+          label={t("form.description")}
           onChange={handleChange}
           value={values.taskDescription}
           customStyle={errors.taskDescription && styles.errorInput}
@@ -147,14 +159,14 @@ const Form = () => {
           />
         </div>
         <CustomSelect
-          label="Choose category"
+          label={t("choose-category")}
           options={categoryTitleOptions}
           value={values.taskCategory}
           onChange={(value) => setFieldValue("taskCategory", value.value)}
         />
         <CustomButton
           type="submit"
-          label="Add task"
+          label={t("add-task")}
           disabled={!isValid || !dirty}
           customStyles={styles.btnAddTask}
           icon={{
@@ -174,6 +186,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: "5px 0px",
     backgroundColor: `${palette.darkBlueTwo}`,
+    boxShadow: `${lightShadow}`,
   },
   form: {
     display: "flex",

@@ -1,7 +1,7 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 import Icon, { IconTypes } from "components/Icon/Icon";
-import { palette, typography } from "styles/index";
+import { typography } from "styles/index";
 import Loader from "components/Loader/Loader";
 
 export interface CustomButtonProps {
@@ -68,11 +68,10 @@ const styles = StyleSheet.create({
     },
   },
   disabled: {
-    backgroundColor: `${palette.black}`,
-    border: `${palette.black}`,
     ":hover": {
       cursor: "no-drop",
     },
+    opacity: 0.4,
   },
 });
 

@@ -17,7 +17,8 @@
   "form": {
     "title": "title",
     "description": "description",
-    "write": "Write here..."
+    "write": "Write here...",
+    "choose-category": "Choose category"
   },
   "choose-priority": "Choose priority",
   "priority": {
@@ -26,8 +27,18 @@
     "high": "high"
   },
   "alert": {
-    "fetch-data": "Data was downloaded",
-    "add-task": "Task was added"
+    "fetch-data": "The data has downloaded",
+    "add-task": "The task has been added"
   },
-  "page-doesnt-exists": "Sorry, this page does not exist"
+  "page-doesnt-exists": "Sorry, this page does not exist",
+  "fetch-data": "Data was downloaded",
+  "task-done": "Task done",
+  "done": "Done",
+  "todo": "Todo",
+  "validation": {
+    "title-is-required": "Title is required",
+    "description-is-required": "Description is required",
+    "category-is-required": "Category is required",
+    "priority-is-required": "Priority is required"
+  }
 }
