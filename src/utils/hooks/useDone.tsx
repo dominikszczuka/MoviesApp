@@ -5,7 +5,7 @@ import { AppState } from "store/store";
 import { setDone, setTodo } from "store/todo/todoActions";
 
 const useDone = (todo: TodoType) => {
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
 
   const { todos, doneTodos } = useSelector(
     (state: AppState) => state.todosReducer
@@ -15,9 +15,11 @@ const useDone = (todo: TodoType) => {
 
   const toggleCompleted = () => {
     if (isCompleted) {
-      disptach(setTodo(todo));
+      dispatch(setTodo(todo));
+      todo.completed = !isCompleted;
     } else {
-      disptach(setDone(todo));
+      dispatch(setDone(todo));
+      todo.completed = !isCompleted;
     }
   };
 

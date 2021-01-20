@@ -51,7 +51,7 @@ export default function todosReducer(
     case todosTypes.DELETE_TODO_RESOLVED:
       return {
         ...state,
-        todos: [...action.payload],
+        doneTodos: [...action.payload],
         loading: false,
       };
     case todosTypes.DELETE_TODO_REJECTED:
@@ -82,19 +82,23 @@ export default function todosReducer(
         loading: false,
         error: action.payload,
       };
-    // ------------- FETCH  TODOS-----------
+
     case todosTypes.SET_DONE:
       return {
         ...state,
+        todos: [...state.todos.filter((todo) => todo !== action.payload)],
         doneTodos: [...state.doneTodos, action.payload],
       };
     case todosTypes.SET_TODO:
       return {
         ...state,
+        todos: [...state.todos, action.payload],
         doneTodos: [
           ...state.doneTodos.filter((todo) => todo.id !== action.payload.id),
         ],
       };
+
+    // ------------- FETCH  TODOS-----------
     case todosTypes.FETCH_TODOS_PENDING:
       return {
         ...state,
@@ -104,7 +108,14 @@ export default function todosReducer(
     case todosTypes.FETCH_TODOS_RESOLVED:
       return {
         ...state,
-        todos: [...state.todos, ...action.payload],
+        todos: [
+          ...state.todos,
+          ...action.payload.filter((todo) => !todo.completed),
+        ],
+        doneTodos: [
+          ...state.doneTodos,
+          ...action.payload.filter((todo) => todo.completed),
+        ],
         loading: false,
       };
     case todosTypes.FETCH_TODOS_REJECTED:
