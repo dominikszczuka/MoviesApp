@@ -1,4 +1,6 @@
 export enum AlertMessage {
-  fetch_data = "Data was downloaded",
-  add_task = "Task was added",
+  fetch_data = "The data has been downloaded",
+  add_task = "The task has been added",
+  delete_tasks = "The tasks have been deleted",
+  delete_task = "The tasks has been deleted",
 }
