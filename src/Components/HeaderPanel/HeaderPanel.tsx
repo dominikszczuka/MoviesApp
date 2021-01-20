@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, css } from "aphrodite";
-import { Nav, Header, BeamWrapper } from "components/index";
-import { lightShadow, palette } from "styles/palette";
+import { Nav, Header, BeamWrapper } from "components";
 
 interface HeaderPanelProps {
   actionButton: ReactNode;

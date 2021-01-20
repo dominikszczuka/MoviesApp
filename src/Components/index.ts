@@ -7,7 +7,6 @@ export { Form } from "./Form/Form";
 export { Header } from "./Header/Header";
 export { HeaderPanel } from "./HeaderPanel/HeaderPanel";
 export { Icon } from "./Icon/Icon";
-export type { IconTypes } from "./Icon/Icon";
 export { LayoutWrapper } from "./LayoutWrapper/LayoutWrapper";
 export { Loader } from "./Loader/Loader";
 export { Nav } from "./Nav/Nav";

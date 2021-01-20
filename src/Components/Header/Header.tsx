@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StyleSheet, css } from "aphrodite";
-import { typography, palette } from "styles/index";
+import { typography, palette } from "styles";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const { t } = useTranslation();
 
   return (

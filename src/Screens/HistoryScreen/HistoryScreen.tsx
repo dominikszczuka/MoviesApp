@@ -5,7 +5,7 @@ import {
   HeaderPanel,
   LayoutWrapper,
   TodoList,
-} from "components/index";
+} from "components";
 import { css, StyleSheet } from "aphrodite";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const HistoryToDoScreen = () => {
   const { doneTodos } = useSelector((state: AppState) => state.todosReducer);
 
   const alert = useAlert();
-  const idOfTodos = doneTodos.map((todo) => todo.id);
+  const todoIds = doneTodos.map((todo) => todo.id);
 
   const showAlert = (message: string, typeMessage: Message) => {
     switch (typeMessage) {
@@ -46,7 +46,7 @@ const HistoryToDoScreen = () => {
       icon={{
         iconName: Icons.faCalendarTimes,
       }}
-      onClick={() => dispatch(deleteTodo(idOfTodos, showAlert))}
+      onClick={() => dispatch(deleteTodo(todoIds, showAlert))}
     />
   );
 

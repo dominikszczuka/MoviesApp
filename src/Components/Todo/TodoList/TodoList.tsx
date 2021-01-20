@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, css } from "aphrodite";
-import { TodoItem } from "components/index";
+import { TodoItem } from "components";
 import { TodoType } from "constants/types/TodoTypes";
 
 interface TodoListProps {

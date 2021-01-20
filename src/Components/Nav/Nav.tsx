@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
 
-import { NavLink } from "components/index";
+import { NavLink } from "components";
 import { useTranslation } from "react-i18next";
 import { LinkElement } from "constants/types/LinkElement";
 import { StyleSheet, css } from "aphrodite";
-import { typography, palette } from "styles/index";
+import { typography, palette } from "styles";
 
-export const Nav = () => {
+export const Nav: React.FC = () => {
   const { t } = useTranslation();
 
   const links: LinkElement[] = [

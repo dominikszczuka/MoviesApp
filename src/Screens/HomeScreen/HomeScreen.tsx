@@ -6,17 +6,17 @@ import {
   CustomButton,
   Form,
   BeamWrapper,
-} from "components/index";
+} from "components";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Icons } from "constants/enums/Icons";
 import { StyleSheet, css } from "aphrodite";
-import { palette, typography, shadow, lightShadow } from "styles/index";
+import { palette, typography, shadow, lightShadow } from "styles";
 import { AppState } from "store/store";
 import { DateTime } from "luxon";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
   const { t } = useTranslation();
   const [showForm, setShowForm] = useState<boolean>(false);
   const { loading } = useSelector((state: AppState) => state.todosReducer);

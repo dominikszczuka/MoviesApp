@@ -6,9 +6,9 @@ import {
   CustomInput,
   CustomRadioButton,
   CustomSelect,
-} from "components/index";
+} from "components";
 import { StyleSheet, css } from "aphrodite";
-import { lightShadow, palette, typography } from "styles/index";
+import { lightShadow, palette, typography } from "styles";
 import { useTranslation } from "react-i18next";
 import { Icons } from "constants/enums/Icons";
 import { useFormik } from "formik";
@@ -22,7 +22,7 @@ import {
   TodoType,
   Message,
   categoryTitleOptions,
-} from "constants/types/index";
+} from "constants/types";
 
 export const Form: React.FC = () => {
   const { t } = useTranslation();

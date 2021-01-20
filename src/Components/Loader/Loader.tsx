@@ -2,7 +2,7 @@ import React from "react";
 import { css, StyleSheet } from "aphrodite";
 import { palette } from "styles";
 
-export const Loader = () => {
+export const Loader: React.FC = () => {
   return <div className={css(styles.spinner)}></div>;
 };
 

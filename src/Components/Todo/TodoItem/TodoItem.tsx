@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import { CustomButton, Icon } from "components/index";
+import { CustomButton, Icon } from "components";
 import useDone from "utils/hooks/useDone";
-import { TodoType, Priority, Category } from "constants/types/index";
+import { TodoType, Priority, Category } from "constants/types";
 import { Icons } from "constants/enums/Icons";
 import { useTranslation } from "react-i18next";
 import { css, StyleSheet } from "aphrodite";
-import { typography, palette, lightShadow } from "styles/index";
+import { typography, palette, lightShadow } from "styles";
 
 export interface TodoItemProps {
   todo: TodoType;
@@ -51,7 +51,6 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
         todo.completed && styles.finishTask,
         taskBorderColor(todo.priority)
       )}
-      onClick={() => console.log(todo)}
     >
       <div className={css(styles.taskHeader)}>
         <p className={css(typography.bigFont, styles.taskTitle)}>

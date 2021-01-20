@@ -1,12 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { StyleSheet, css } from "aphrodite";
-export interface IconTypes {
-  iconName: IconName;
-  iconSize?: "1x" | "2x" | "3x";
-  color?: string;
-}
+import { IconTypes } from "constants/types/IconTypes";
 
 export const Icon: React.FC<IconTypes> = ({
   iconName,

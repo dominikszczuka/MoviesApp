@@ -10,7 +10,7 @@ import * as todosTypes from "./todoTypes";
 const priority = ["low", "medium", "high"];
 const category = ["lifestyle", "work", "house", "car", "children"];
 
-function createContentTask(todos: TodoType[]) {
+function fulfillTodoItem(todos: TodoType[]) {
   for (const todo of todos) {
     todo.priority = priority[
       Math.floor(Math.random() * (priority.length - 1 - 0 + 1) + 0)
@@ -30,7 +30,7 @@ function* getTodoSagas(action: todosTypes.FetchTodos) {
   try {
     yield put(todosActions.fetchTodosPending());
     const todos: TodoType[] = yield call(getTodosApi);
-    createContentTask(todos);
+    fulfillTodoItem(todos);
     if (!todos[0].id) return yield put(todosActions.fetchTodosRejected("Brak"));
     yield put(todosActions.fetchTodosResolved(todos));
     callback(AlertMessage.fetch_data, "success");
@@ -81,12 +81,12 @@ function* deleteTodoTask(action: todosTypes.DeleteTodo) {
     const doneTodos: TodoType[] = yield select(
       (state) => state.todosReducer.doneTodos
     );
-    const todosCopy = [...doneTodos];
-    let newTasks: TodoType[] = [];
-    let tasksToDelete = action.payload.todosId;
+    const doneTodosCopy = [...doneTodos];
+    const newTasks: TodoType[] = [];
+    const tasksToDelete = action.payload.todosId;
 
-    for (let i = 0; i < todosCopy.length; i++) {
-      const task = todosCopy[i];
+    for (let i = 0; i < doneTodosCopy.length; i++) {
+      const task = doneTodosCopy[i];
       const exists = tasksToDelete.includes(task.id);
       if (!exists) {
         newTasks.push(task);
