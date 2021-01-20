@@ -1,8 +1,8 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
 import { Icon, Loader } from "components";
-import { typography } from "styles/index";
-import { IconTypes } from "constants/types/IconTypes";
+import { typography } from "styles";
+import { IconTypes } from "constants/types";
 
 export interface CustomButtonProps {
   type: "button" | "submit";
