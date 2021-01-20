@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { StyleSheet, css } from "aphrodite";
 import { typography, palette } from "styles/index";
 
-const Header = () => {
+export const Header = () => {
   const { t } = useTranslation();
 
   return (
@@ -19,5 +19,3 @@ const styles = StyleSheet.create({
     textShadow: `2px 2px 2px 2px ${palette.black}`,
   },
 });
-
-export default Header;

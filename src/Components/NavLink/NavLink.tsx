@@ -10,7 +10,7 @@ export interface NavLinkProps {
   link: LinkElement;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ link }) => {
+export const NavLink: React.FC<NavLinkProps> = ({ link }) => {
   const { t } = useTranslation();
 
   return (
@@ -28,5 +28,3 @@ const style = StyleSheet.create({
     textDecoration: "none",
   },
 });
-
-export default NavLink;

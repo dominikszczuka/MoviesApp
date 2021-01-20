@@ -12,7 +12,7 @@ interface CustomRadioButtonProps {
   label: string;
 }
 
-const CustomRadioButton: React.FC<CustomRadioButtonProps> = ({
+export const CustomRadioButton: React.FC<CustomRadioButtonProps> = ({
   name,
   value,
   onChange,
@@ -45,5 +45,3 @@ const styles = StyleSheet.create({
     margin: "0px 5px",
   },
 });
-
-export default CustomRadioButton;

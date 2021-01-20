@@ -17,7 +17,7 @@ export interface CustomInputProps {
   customStyle?: StyleDeclaration;
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({
+export const CustomInput: React.FC<CustomInputProps> = ({
   name,
   type,
   placeholder,
@@ -63,10 +63,11 @@ const styles = StyleSheet.create({
     margin: "10px 0px",
     border: `3px solid ${palette.darkBlue}`,
     borderRadius: "10px",
+    ":focus": {
+      outline: "none",
+    },
   },
   disabled: {
     backgroundColor: "gray",
   },
 });
-
-export default CustomInput;

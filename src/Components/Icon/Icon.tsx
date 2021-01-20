@@ -8,7 +8,7 @@ export interface IconTypes {
   color?: string;
 }
 
-const Icon: React.FC<IconTypes> = ({
+export const Icon: React.FC<IconTypes> = ({
   iconName,
   iconSize = "1x",
   color = "#ffffff",
@@ -25,8 +25,6 @@ const Icon: React.FC<IconTypes> = ({
 
 const styles = StyleSheet.create({
   icon: {
-    margin: "0px 8px",
+    margin: "0px 5px",
   },
 });
-
-export default Icon;

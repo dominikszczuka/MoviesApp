@@ -2,7 +2,7 @@ import React from "react";
 import { css, StyleSheet } from "aphrodite";
 import { palette } from "styles";
 
-const Loader = () => {
+export const Loader = () => {
   return <div className={css(styles.spinner)}></div>;
 };
 
@@ -16,22 +16,17 @@ const translateKeyframes = {
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
   spinner: {
     display: "inline-block",
     width: "40px",
     height: "40px",
+    margin: "0 auto",
     ":after": {
       content: '" "',
       display: "block",
       width: "24px",
       height: "24px",
-      margin: "8px auto",
+      margin: "0px auto",
       borderRadius: "50%",
       border: `6px solid ${palette.darkBlueTwo}`,
       borderColor: `${palette.darkBlueTwo} transparent ${palette.darkBlueTwo} transparent`,
@@ -40,5 +35,3 @@ const styles = StyleSheet.create({
     },
   },
 });
-
-export default Loader;
