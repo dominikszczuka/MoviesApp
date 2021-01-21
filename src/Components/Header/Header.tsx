@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StyleSheet, css } from "aphrodite";
-import { typography, palette } from "styles/index";
+import { typography, palette } from "styles";
 
-const Header = () => {
+export const Header: React.FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -19,5 +19,3 @@ const styles = StyleSheet.create({
     textShadow: `2px 2px 2px 2px ${palette.black}`,
   },
 });
-
-export default Header;

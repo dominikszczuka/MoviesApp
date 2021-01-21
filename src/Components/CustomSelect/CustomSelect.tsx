@@ -13,7 +13,7 @@ export interface CustomSelectProps {
   label: string;
 }
 
-const CustomSelect: React.FC<CustomSelectProps> = ({
+export const CustomSelect: React.FC<CustomSelectProps> = ({
   onChange,
   options,
   value,
@@ -61,5 +61,3 @@ const styles = StyleSheet.create({
     width: "130px",
   },
 });
-
-export default CustomSelect;

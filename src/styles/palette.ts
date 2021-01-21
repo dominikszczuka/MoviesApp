@@ -15,6 +15,7 @@ export const palette = {
   danger: "#d9534f",
   info: "#5bc0de",
   warning: "#f0ad4e",
+  orange: "#ffa500",
 };
 
 export const shadow = `2px 2px 2px ${palette.darkGray}`;

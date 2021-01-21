@@ -1,4 +1,4 @@
-import { TodoType } from "constants/types/TodoTypes";
+import { TodoType } from "constants/types/index";
 
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 

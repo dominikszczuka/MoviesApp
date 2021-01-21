@@ -1,36 +1,63 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from "react";
-import { TodoType } from "constants/types/TodoTypes";
-import { css, StyleSheet } from "aphrodite";
-import { typography, palette, lightShadow } from "styles/index";
-import Icon from "components/Icon/Icon";
+import React from "react";
+import { CustomButton, Icon } from "components";
+import useDone from "utils/hooks/useDone";
+import { TodoType, Priority, Category } from "constants/types";
 import { Icons } from "constants/enums/Icons";
 import { useTranslation } from "react-i18next";
-import CustomButton from "components/CustomButton/CustomButton";
-import useDone from "utils/hooks/useDone";
+import { css, StyleSheet } from "aphrodite";
+import { typography, palette, lightShadow } from "styles";
 
 export interface TodoItemProps {
   todo: TodoType;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const { t } = useTranslation();
   const { isCompleted, toggleCompleted } = useDone(todo);
-  const label = !todo.completed ? `${t("done")}` : `${t("todo")}`;
+  const label = !isCompleted ? `${t("done")}` : `${t("todo")}`;
+
+  const taskBorderColor = (priority: Priority) => {
+    switch (priority) {
+      case "low":
+        return styles.lowBorder;
+      case "medium":
+        return styles.mediumBorder;
+      case "high":
+        return styles.highBorder;
+    }
+  };
+
+  const taskIcon = (category: Category) => {
+    switch (category) {
+      case "lifestyle":
+        return Icons.faRunning;
+      case "work":
+        return Icons.faBriefcase;
+      case "house":
+        return Icons.faHome;
+      case "car":
+        return Icons.faCar;
+      case "children":
+        return Icons.faChild;
+    }
+  };
+
   return (
     <div
-      onClick={() => {
-        console.log(todo);
-      }}
-      className={css(styles.taskWrapp, todo.completed && styles.finishTask)}
+      className={css(
+        styles.taskWrapp,
+        todo.completed && styles.finishTask,
+        taskBorderColor(todo.priority)
+      )}
     >
       <div className={css(styles.taskHeader)}>
         <p className={css(typography.bigFont, styles.taskTitle)}>
           {todo.title}
         </p>
         <Icon
-          iconName={Icons.faGraduationCap}
+          iconName={taskIcon(todo.category)}
           iconSize="2x"
           color={palette.blue}
         />
@@ -39,15 +66,16 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
         {t("task.description")}:
       </p>
       <p className={css(typography.normalFont, styles.taskDescriptionText)}>
-        {todo.description
-          ? todo.description
-          : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciun aliquam accusamus enim quae iure blanditiis"}
+        {todo.description}
       </p>
       <CustomButton
         type="button"
         label={label}
         onClick={toggleCompleted}
         customStyles={styles.btnDone}
+        icon={{
+          iconName: Icons.faCheck,
+        }}
       />
     </div>
   );
@@ -58,10 +86,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     minHeight: "150px",
+    width: "700px",
     margin: "10px 10px",
     padding: "10px 10px",
     backgroundColor: `${palette.lightGray}`,
-    borderLeft: `10px solid ${palette.success}`,
+    borderLeft: `10px solid`,
     boxShadow: `${lightShadow}`,
   },
   taskHeader: {
@@ -81,18 +110,23 @@ const styles = StyleSheet.create({
     textAlign: "justify",
   },
   btnDone: {
-    width: "70px",
+    width: "90px",
     margin: "5px 0px",
     backgroundColor: `${palette.blue}`,
     border: `2px solid ${palette.white}`,
     color: `${palette.white}`,
-    ":focus": {
-      outline: "none",
-    },
+    alignItems: "center",
   },
   finishTask: {
     opacity: 0.5,
   },
+  lowBorder: {
+    borderColor: `${palette.success}`,
+  },
+  mediumBorder: {
+    borderColor: `${palette.orange}`,
+  },
+  highBorder: {
+    borderColor: `${palette.danger}`,
+  },
 });
-
-export default TodoItem;

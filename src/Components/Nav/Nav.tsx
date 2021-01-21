@@ -1,13 +1,12 @@
 import React, { ReactNode } from "react";
 
-import NavLink from "../NavLink/NavLink";
-
+import { NavLink } from "components";
 import { useTranslation } from "react-i18next";
-import { LinkElement } from "constants/types/LinkElement";
+import { LinkElement } from "constants/types";
 import { StyleSheet, css } from "aphrodite";
-import { typography, palette } from "styles/index";
+import { typography, palette } from "styles";
 
-const Nav = () => {
+export const Nav: React.FC = () => {
   const { t } = useTranslation();
 
   const links: LinkElement[] = [
@@ -42,5 +41,3 @@ const style = StyleSheet.create({
     listStyle: "none",
   },
 });
-
-export default Nav;

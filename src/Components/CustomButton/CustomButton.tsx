@@ -1,8 +1,8 @@
 import React from "react";
 import { css, StyleDeclaration, StyleSheet } from "aphrodite";
-import Icon, { IconTypes } from "components/Icon/Icon";
-import { typography } from "styles/index";
-import Loader from "components/Loader/Loader";
+import { Icon, Loader } from "components";
+import { typography } from "styles";
+import { IconTypes } from "constants/types";
 
 export interface CustomButtonProps {
   type: "button" | "submit";
@@ -15,7 +15,7 @@ export interface CustomButtonProps {
   loading?: boolean;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({
+export const CustomButton: React.FC<CustomButtonProps> = ({
   type,
   onClick,
   label,
@@ -33,34 +33,34 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   );
 
   return (
-    <div>
-      <button
-        type={type}
-        onClick={onClick}
-        disabled={disabled}
-        className={css(
-          styles.btn,
-          typography.buttonFont,
-          styles.hover,
-          customStyles,
-          disabled && styles.disabled
-        )}
-        data-filled={filled}
-      >
-        {loading ? <Loader /> : labelContent}
-      </button>
-    </div>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={css(
+        styles.btn,
+        typography.buttonFont,
+        styles.hover,
+        customStyles,
+        disabled && styles.disabled
+      )}
+      data-filled={filled}
+    >
+      {loading ? <Loader /> : labelContent}
+    </button>
   );
 };
 
 const styles = StyleSheet.create({
   btn: {
-    padding: "5px 10px",
+    padding: "8px",
     borderRadius: "5px",
     border: "none",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    ":focus": {
+      outline: "none",
+    },
   },
   hover: {
     ":hover": {
@@ -74,5 +74,3 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
 });
-
-export default CustomButton;

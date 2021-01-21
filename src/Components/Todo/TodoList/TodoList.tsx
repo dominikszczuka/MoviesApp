@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
 import { StyleSheet, css } from "aphrodite";
-import TodoItem from "components/Todo/TodoItem/TodoItem";
-import { TodoType } from "constants/types/TodoTypes";
+import { TodoItem } from "components";
+import { TodoType } from "constants/types";
 
 interface TodoListProps {
   todos: TodoType[];
 }
 
-const TodoList: React.FC<TodoListProps> = ({ todos }) => {
+export const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   const renderToDoList = (): ReactNode =>
     todos.map((todo, index) => <TodoItem key={index} todo={todo} />);
 
@@ -24,4 +24,3 @@ const style = StyleSheet.create({
     width: "100%",
   },
 });
-export default TodoList;

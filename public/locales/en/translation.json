@@ -14,11 +14,13 @@
   "delete-tasks": "Delete tasks",
   "active-tasks": "Active tasks",
   "history-tasks": "Task`s history",
+  "finish-tasks": "Congratulation, you have finished all your tasks",
   "form": {
     "title": "title",
     "description": "description",
     "write": "Write here...",
-    "choose-category": "Choose category"
+    "choose-category": "Choose category",
+    "close-form": "Close form"
   },
   "choose-priority": "Choose priority",
   "priority": {
@@ -28,7 +30,9 @@
   },
   "alert": {
     "fetch-data": "The data has been downloaded",
-    "add-task": "The task has been added"
+    "add-task": "The task has been added",
+    "delete-tasks": "The tasks have been deleted",
+    "delete-task": "The tasks has been deleted"
   },
   "page-doesnt-exists": "Sorry, this page does not exist",
   "fetch-data": "Data was downloaded",

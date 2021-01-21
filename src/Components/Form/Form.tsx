@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React from "react";
-import CustomButton from "components/CustomButton/CustomButton";
-import CustomInput from "components/CustomInput/CustomInput";
-import CustomRadioButton from "components/CustomRadioButton/CustomRadioButton";
-import CustomSelect from "components/CustomSelect/CustomSelect";
-
+import {
+  CustomButton,
+  CustomInput,
+  CustomRadioButton,
+  CustomSelect,
+} from "components";
 import { StyleSheet, css } from "aphrodite";
-import { lightShadow, palette, typography } from "styles/index";
+import { lightShadow, palette, typography } from "styles";
 import { useTranslation } from "react-i18next";
 import { Icons } from "constants/enums/Icons";
 import { useFormik } from "formik";
@@ -15,25 +16,15 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "store/todo/todoActions";
 import { useAlert } from "react-alert";
 import * as Yup from "yup";
-
 import {
   Category,
   Priority,
   TodoType,
-  SelectItem,
   Message,
-} from "constants/types/index";
+  categoryTitleOptions,
+} from "constants/types";
 
-const categoryTitleOptions: SelectItem[] = [
-  { value: "lifestyle", label: "Lifestyle" },
-  { value: "work", label: "Work" },
-  { value: "house", label: "House" },
-  { value: "car", label: "Car" },
-  { value: "children", label: "Children" },
-  { value: "science", label: "Science" },
-];
-
-const Form = () => {
+export const Form: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -214,6 +205,7 @@ const styles = StyleSheet.create({
     color: `${palette.white}`,
     border: `1px solid ${palette.darkRed}`,
     fontSize: "22px",
+    alignItems: "center",
   },
   errorsForm: {
     color: `${palette.white}`,
@@ -223,5 +215,3 @@ const styles = StyleSheet.create({
     border: `3px solid ${palette.danger}`,
   },
 });
-
-export default Form;
