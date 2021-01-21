@@ -14,3 +14,4 @@ export { NavLink } from "./NavLink/NavLink";
 export { TodoItem } from "./Todo/TodoItem/TodoItem";
 export { TodoList } from "./Todo/TodoList/TodoList";
 export { BeamWrapper } from "./BeamWrapper/BeamWrapper";
+export { IconButton } from "./IconButton/IconButton";

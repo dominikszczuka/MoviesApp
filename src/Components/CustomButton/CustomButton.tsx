@@ -40,7 +40,6 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
       className={css(
         styles.btn,
         typography.buttonFont,
-        styles.hover,
         customStyles,
         disabled && styles.disabled
       )}
@@ -61,8 +60,6 @@ const styles = StyleSheet.create({
     ":focus": {
       outline: "none",
     },
-  },
-  hover: {
     ":hover": {
       cursor: "pointer",
     },

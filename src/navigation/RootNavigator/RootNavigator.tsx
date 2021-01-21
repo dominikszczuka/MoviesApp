@@ -8,14 +8,15 @@ import { getTodosFromLocalStorage, fetchTodos } from "store/todo/todoActions";
 import { useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { useTranslation } from "react-i18next";
-import { checkIfDateExists } from "utils/helpers/methodsForStorage";
+import { getFromLocaleStorage } from "utils/helpers/localeStorageHelper";
+import { localStorageKeys } from "constants/enums";
+import { TodoType } from "constants/types";
 
 const RootNavigator = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const alert = useAlert();
   const errorLink = () => <div>{t("page-doesnt-exists")}</div>;
-  const allTodos = checkIfDateExists();
 
   const showAlert = (message: string, typeMessage: Message) => {
     switch (typeMessage) {
@@ -31,12 +32,20 @@ const RootNavigator = () => {
     }
   };
 
-  useEffect(() => {
-    if (allTodos) {
-      dispatch(getTodosFromLocalStorage(allTodos.todos, allTodos.todosDone));
+  const fetchTasks = () => {
+    const todos: TodoType[] = getFromLocaleStorage(localStorageKeys.todos);
+    const doneTodos: TodoType[] = getFromLocaleStorage(
+      localStorageKeys.doneTodos
+    );
+    if (!!todos && todos.length > 0 && !!doneTodos && doneTodos.length > 0) {
+      dispatch(getTodosFromLocalStorage(todos, doneTodos));
     } else {
       dispatch(fetchTodos(showAlert));
     }
+  };
+
+  useEffect(() => {
+    fetchTasks();
   }, [dispatch]);
 
   return (
