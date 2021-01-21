@@ -7,7 +7,7 @@ import { IconTypes } from "constants/types";
 export interface CustomButtonProps {
   type: "button" | "submit";
   onClick?: () => void;
-  label: string;
+  label?: string;
   customStyles?: StyleDeclaration;
   disabled?: boolean;
   filled?: boolean;
