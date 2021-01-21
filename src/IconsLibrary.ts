@@ -12,6 +12,8 @@ import {
   faChild,
   faRunning,
   faWindowClose,
+  faFileDownload,
+  faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -26,5 +28,7 @@ library.add(
   faCar,
   faChild,
   faRunning,
-  faWindowClose
+  faWindowClose,
+  faFileDownload,
+  faTrashAlt
 );

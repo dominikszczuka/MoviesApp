@@ -12,4 +12,6 @@ export enum Icons {
   faChild = "child",
   faRunning = "running",
   faWindowClose = "window-close",
+  faFileDownload = "file-download",
+  faTrashAlt = "trash-alt",
 }

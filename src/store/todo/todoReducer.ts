@@ -97,6 +97,12 @@ export default function todosReducer(
           ...state.doneTodos.filter((todo) => todo.id !== action.payload.id),
         ],
       };
+    case todosTypes.GET_TODOS_FROM_LOCAL_STORAGE:
+      return {
+        ...state,
+        todos: [...state.todos, ...action.payload.todos],
+        doneTodos: [...state.doneTodos, ...action.payload.doneTodos],
+      };
 
     // ------------- FETCH  TODOS-----------
     case todosTypes.FETCH_TODOS_PENDING:
