@@ -15,6 +15,7 @@ function fulfillTodoItem(todos: TodoType[]) {
     todo.priority = priority[
       Math.floor(Math.random() * (priority.length - 1 - 0 + 1) + 0)
     ] as Priority;
+    console.log(todo);
     todo.category = category[
       Math.floor(Math.random() * (category.length - 1 - 0 + 1) + 0)
     ] as Category;

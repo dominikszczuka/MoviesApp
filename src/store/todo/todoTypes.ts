@@ -1,6 +1,9 @@
 import { Message } from "constants/types/Message";
 import { TodoType } from "constants/types/TodoTypes";
 
+// -------------TODO LOCAL-------------
+export const DELETE_TODOS = "DELETE_TODOS";
+
 // -------------- ADD TODOS ------------
 export const ADD_TODO = "ADD_TODO";
 export const ADD_TODOS_PENDING = "ADD_TODOS_PENDING";
@@ -22,7 +25,6 @@ export const DELETE_TODO_REJECTED = "DELETE_TODO_REJECTED";
 // ------------- FETCH TODOS-----------
 export const SET_DONE = "SET_DONE";
 export const SET_TODO = "SET_TODO";
-export const GET_TODOS_FROM_LOCAL_STORAGE = "GET_TODOS_FROM_LOCAL_STORAGE";
 
 export const FETCH_TODOS = "FETCH_TODOS";
 export const FETCH_TODOS_PENDING = "FETCH_TODOS_PENDING";
@@ -97,15 +99,6 @@ export interface UpdateTodoRejected {
   payload: string;
 }
 // -------------------------------------
-// ------------- SET TODOS -------------
-export interface GetTodosFromLocalStorage {
-  type: typeof GET_TODOS_FROM_LOCAL_STORAGE;
-  payload: {
-    todos: TodoType[];
-    doneTodos: TodoType[];
-  };
-}
-// -------------------------------------
 
 // ------------- SET DONE -------------
 export interface SetDone {
@@ -158,5 +151,4 @@ export type TodosActionType =
   | FetchTodosResolved
   | FetchTodosRejected
   | SetDone
-  | SetTodo
-  | GetTodosFromLocalStorage;
+  | SetTodo;

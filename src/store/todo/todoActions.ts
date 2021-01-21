@@ -104,14 +104,6 @@ export const setDone = (todo: TodoType): todosTypes.SetDone => ({
   payload: todo,
 });
 
-export const getTodosFromLocalStorage = (
-  todos: TodoType[],
-  doneTodos: TodoType[]
-): todosTypes.GetTodosFromLocalStorage => ({
-  type: todosTypes.GET_TODOS_FROM_LOCAL_STORAGE,
-  payload: { todos, doneTodos },
-});
-
 export const fetchTodos = (
   callback: (message: string, typeMessage: Message) => void
 ): todosTypes.FetchTodos => ({

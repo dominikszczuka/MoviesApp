@@ -7,7 +7,7 @@ import { IconTypes } from "constants/types";
 export interface CustomButtonProps {
   type: "button" | "submit";
   onClick?: () => void;
-  label?: string;
+  label: string;
   customStyles?: StyleDeclaration;
   disabled?: boolean;
   filled?: boolean;
@@ -40,6 +40,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
       className={css(
         styles.btn,
         typography.buttonFont,
+        styles.hover,
         customStyles,
         disabled && styles.disabled
       )}
@@ -60,6 +61,8 @@ const styles = StyleSheet.create({
     ":focus": {
       outline: "none",
     },
+  },
+  hover: {
     ":hover": {
       cursor: "pointer",
     },
