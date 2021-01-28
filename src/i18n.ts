@@ -12,7 +12,7 @@ i18n
     fallbackLng: {
       "en-US": ["en"],
     },
-    debug: true,
+    debug: false,
     react: {
       useSuspense: false,
     },
